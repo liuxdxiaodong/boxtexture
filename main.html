@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包装盒专属定制</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="iWeb">
+    <div class="iTitle">
+        <div class="tName"><p>名称：包装盒</p></div>
+        <div class="tTitle"><p>包装盒专属定制</p></div>
+    </div>
+    <div class="iContent">
+        <div class="cObject">
+            <div class="objScene" id="jScene">
+            </div>
+            <div class="objCheck" id="jCheck">
+                <div class = "options">
+                    <select class="sltNum" id="objGroup"></select>
+                </div>
+                <div class = "options">
+                    <input type="radio" value="1" name="forms" id="autoForm"/><label for="autoForm">手动</label>
+                    <input type="radio" value="0" name="forms" id="manForm"/><label for="manForm">自动</label>
+                </div>
+                <div class = "options">
+                    <input type="checkbox" name="split" id="sForm"/><label for="sForm">拆分</label>
+                    <select name='boxIndex' class="sltNum" id='boxArrange'></select>
+                    <label for="boxArrange">部件</label>
+                </div>
+                <div class = "options">
+                    <select name="mtrCombine" class="sltText" id="mtrGroup"></select>
+                    <label for="mtrGroup">材质组合</label>
+                </div>
+            </div>
+        </div>
+        <div class="cMaterial">
+            <div class="mtrExist">
+                <div class="mtrExistList mBorder" id="mtrExistId"></div>
+                <div class="mtrParam mBorder">
+                    <div class="mtrParamTitle">贴图模式</div>
+                    <div class="mtrParamDetail">
+                        <div class="mtrExistParam">
+                            <div class="mepList">
+                                <div class="mepBox">
+                                    <div class="mepCheck">
+                                        <input type="checkbox" name="chkMode" id="mepAmbtChk" />
+                                    </div>
+                                    <div class="mepLabel">
+                                        <label for="mepAmbtIpt">环境色:</label>
+                                    </div>
+                                    <div class="mepInput">
+                                        <input class="mepItem" id="mepAmbtIpt" disabled="disabled" />
+                                    </div>
+                                    <div class="mepButton">
+                                        <button class="mepBtn jscolor {valueElement:'mepAmbtIpt', onFineChange:'setTextColor(this)'}"
+                                                type="button" id="mepAmbtBtn" disabled="disabled"></button>
+                                    </div>
+                                </div>
+                                <div class="mepBox">
+                                    <div class="mepCheck">
+                                        <input type="checkbox" name="chkMode" id="mepShinChk" />
+                                    </div>
+                                    <div class="mepLabel">
+                                        <label for="mepShinIpt">亮度：</label>
+                                    </div>
+                                    <div class="mepInput">
+                                        <input class="mepItem" type="number" id="mepShinIpt" value="100" disabled="disabled" />
+                                    </div>
+                                    <div class="mepButton">
+                                        <button class="mepBtn" type="button" id="mepShinBtn" disabled="disabled"></button>
+                                    </div>
+                                </div>
+                                <div class="mepBox">
+                                    <div class="mepCheck">
+                                        <input type="checkbox" name="chkMode" id="mepDiffChk" />
+                                    </div>
+                                    <div class="mepLabel">
+                                        <label for="mepDiffIpt">漫射色:</label>
+                                    </div>
+                                    <div class="mepInput">
+                                        <input class="mepItem" type="number" id="mepDiffIpt" value="100" disabled="disabled" />
+                                    </div>
+                                    <div class="mepButton">
+                                        <button class="mepBtn" type="button" id="mepDiffBtn" disabled="disabled" ></button>
+                                    </div>
+                                </div>
+                                <div class="mepBox">
+                                    <div class="mepCheck">
+                                        <input type="checkbox" name="chkMode" id="mepSpelChk" />
+                                    </div>
+                                    <div class="mepLabel">
+                                        <label for="mepSpelIpt">高光色:</label>
+                                    </div>
+                                    <div class="mepInput">
+                                        <Input class="mepItem" type="number" id="mepSpelIpt" value="100" disabled="disabled" />
+                                    </div>
+                                    <div class="mepButton">
+                                        <button class="mepBtn" type="button" id="mepSpelBtn" disabled="disabled" ></button>
+                                    </div>
+                                </div>
+
+                                <div class="mepBox">
+                                    <div class="mepCheck">
+                                        <input type="checkbox" name="chkMode" id="mepTranChk" />
+                                    </div>
+                                    <div class="mepLabel">
+                                        <label for="mepTranIpt">透明度：</label>
+                                    </div>
+                                    <div class="mepInput">
+                                        <input class="mepItem" type="number" id="mepTranIpt" value="100" disabled="disabled" />
+                                    </div>
+                                    <div class="mepButton">
+                                        <button class="mepBtn" type="button" id="mepTranBtn" disabled="disabled" ></button>
+                                    </div>
+                                </div>
+                                <div class="mepBox">
+                                    <div class="mepCheck">
+                                        <input type="checkbox" name="chkMode" id="mepBumpChk" />
+                                    </div>
+                                    <div class="mepLabel">
+                                        <label for="mepBumpIpt">凹凸工艺：</label>
+                                    </div>
+                                    <div class="mepInput">
+                                        <input class="mepItem" type="number" id="mepBumpIpt" value="100" disabled="disabled" />
+                                    </div>
+                                    <div class="mepButton">
+                                        <button class="mepBtn" type="button" id="mepBumpBtn" disabled="disabled" ></button>
+                                    </div>
+                                </div>
+                                <div class="mepBox">
+                                    <div class="mepCheck">
+                                        <input type="checkbox" name="chkMode" id="mepReftChk" />
+                                    </div>
+                                    <div class="mepLabel">
+                                        <label for="mepReftIpt">反射：</label>
+                                    </div>
+                                    <div class="mepInput">
+                                        <input class="mepItem" type="number" id="mepReftIpt" value="100" disabled="disabled" />
+                                    </div>
+                                    <div class="mepButton">
+                                        <button class="mepBtn" type="button" id="mepReftBtn" disabled="disabled" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mtrBasic mBorder">
+                <div class="mtrBasicTitle">基础材质库</div>
+                <div class="mtrBasicList" id="mtrBasicId"></div>
+            </div>
+            <div class="mtrVaria mBorder">
+                <div class="mtrVariaTitle">我的素材库
+                    <button type="button" class="bBtn" id="upLoadBtn" >上传</button>
+                </div>
+                <div class="mtrVariaList" id="mtrVariaId"></div>
+            </div>
+        </div>
+        <div class="cButton">
+            <div class="bBtns">
+                <button type="button" class="bBtn" id="okBtn" >保存</button>
+                <button type="submit" class="bBtn" id="submitBtn">提交</button>
+                <button type="button" class="bBtn" id="cancelBtn">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="libs/Detector.js"></script>
+<script type="text/javascript" src="libs/jscolor.js"></script>
+<!--<script type="text/javascript" src="libs/three.min.js"></script>-->
+<script type="text/javascript" src="libs/three.js"></script>
+<script type="text/javascript" src="libs/MTLLoader.js"></script>
+<script type="text/javascript" src="libs/OBJLoader.js"></script>
+<!--<script type="text/javascript" src="libs/jquery.js"></script>-->
+<script type="text/javascript" src="libs/OBJMTLLoader.js"></script>
+<script type="text/javascript" src="libs/TrackballControls.js"></script>
+<script type="text/javascript" src="libs/dat.gui.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/showImg.js"></script>           <!--charset="gb2312" -->
+<script type="text/javascript" src="js/func.js"></script>
+<script type="text/javascript" src="js/eventControl.js"></script>
+<script type="text/javascript" src="js/scenePro.js"></script>
+</body>
+</html>

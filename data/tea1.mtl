@@ -1,0 +1,99 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# 创建的文件:20.02.2016 11:14:32
+
+newmtl wire_148177027
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.5804 0.6941 0.1059
+	Kd 0.5804 0.6941 0.1059
+	Ks 0.3500 0.3500 0.3500
+
+newmtl wire_177148027
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.6941 0.5804 0.1059
+	Kd 0.6941 0.5804 0.1059
+	Ks 0.3500 0.3500 0.3500
+
+newmtl 06___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka E:\homework\webGL\max\tea_box\m002.jpg
+	map_Kd E:\homework\webGL\max\tea_box\m002.jpg
+
+newmtl 04___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka E:\homework\webGL\max\tea_box\m001.jpg
+	map_Kd E:\homework\webGL\max\tea_box\m001.jpg
+	map_bump E:\homework\webGL\max\tea_box\c003.jpg
+	bump E:\homework\webGL\max\tea_box\c003.jpg
+
+newmtl 05___Default
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.2790 0.2790 0.2790
+	Ke 0.0000 0.0000 0.0000
+	
+	
+	map_d E:\homework\webGL\read1\alpha00.png
+	map_bump E:\homework\webGL\max\tea_box\c004.jpg
+	bump E:\homework\webGL\max\tea_box\c004.jpg
+
+newmtl 11___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka E:\homework\webGL\max\tea_box\c001.jpg
+	map_Kd E:\homework\webGL\max\tea_box\c001.jpg
+	map_d E:\homework\webGL\max\tea_box\c001.jpg
+
+newmtl 10___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka E:\homework\webGL\max\tea_box\c002.jpg
+	map_Kd E:\homework\webGL\max\tea_box\c002.jpg
+	map_d E:\homework\webGL\max\tea_box\c002.jpg

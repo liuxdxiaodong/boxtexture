@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图像</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="iWeb">
+    <div class="iTitle">
+        <div class="tName"><p>名称：包装盒</p></div>
+        <div class="tTitle"><p>包装盒专属定制</p></div>
+    </div>
+    <div class="iContent">
+        <div class="tControls">
+            <div class="bControl">
+                <input type="file" class="bFile" id="uLoadBtn"/>
+            </div>
+            <div class="bControl">
+                <select class="sltText" id="uModeSlt">
+                    <option value="original">original</option>
+                    <option value="binary">binary</option>
+                    <option value="bump">bump</option>
+                    <option value="transparent">transparent</option>
+                </select>
+            </div>
+            <div>
+                <div class="bControl">
+                    <input type="checkbox" id="uTextChk"/>
+                    <label for="uTextChk">文字</label>
+                </div>
+                <div class="bControl">
+                    <input type="checkbox" id="uTextDrt"/>
+                    <label for="uTextDrt">竖排</label>
+                </div>
+                <div class="bControl" id="tText">
+                    <input type="text" class="mepInput" id="uTextIpt"/>
+                    <select class="sltNum" id="uTextSize"></select>
+                    <select class="sltText" id="uTextFont"></select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tCanvas">
+            <canvas class="canvas" id="canvasA"></canvas>
+            <canvas class="canvas" id="canvasB"></canvas>
+        </div>
+        <div class="bBtns">
+            <button type="button" class="bBtn" id="uSaveBtn">保存</button>
+            <button type="button" class="bBtn" id="uSubmitBtn">提交</button>
+            <button type="button" class="bBtn" id="uCancelBtn">取消</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/loadImg.js"></script>
+</body>
+</html>

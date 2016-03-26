@@ -1,0 +1,270 @@
+html,body {
+    margin: 0px;
+    padding: 0px;
+    font-family: cursive;
+    font-size: 13px;
+    align-content: center;
+}
+
+a {
+    color: #000;
+    font-size: 11px;
+}
+a:hover {
+    color: #00f;
+}
+.mBorder {
+    margin: 2px auto;
+    border: 1px solid #000;
+}
+
+.mBoxBorder {
+    margin: 2px 2px;
+    border: 1px solid #000;
+}
+.iWeb {
+    width: 789px;
+    height: 930px;
+    margin: 0 auto;
+}
+
+/*******title*******/
+.iTitle {
+    width: 789px;
+    height: 65px;
+    align-content: center;
+    /*background: -webkit-gradient(linear, left bottom, right top, from(#a8ffbe), to(#fafafa));*/
+    /*background-color: #a8ffbe;*/
+}
+.tName {
+    width: 33%;
+    height: 65px;
+    display: inline-block;
+}
+
+.tTitle {
+    width: 33%;
+    height: 65px;
+    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.iContent {
+    width: 100%;
+    height: 754px;
+    /*background-color: #d6fff3;*/
+    background: -webkit-gradient(linear,left top, left bottom, from(#aaaaaa), to(#ffffff));
+}
+
+/*******object*******/
+.cObject {
+    width: 100%;
+    height: 358px;
+}
+
+.objScene {
+    width: 489px;
+    height:338px;
+    margin: 2px auto;
+}
+
+.objCheck {
+    width: 489px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.options {
+    display: inline-block;
+    margin: 0 5px;
+}
+.checkBar {
+    width: 80px;
+    height: auto;
+    position: inherit;
+}
+/*******Material*******/
+.cMaterial {
+    width: 100%;
+    height: 447px;
+}
+
+
+.mtrExist {
+    width: 489px;
+    height: 193px;
+    margin: 2px auto;
+}
+
+.mtrExistList {
+    width: 286px;
+    height: 188px;
+    display: inline-block;
+    overflow-y: auto;
+}
+
+.mtrExistItem {
+    width:100px;
+    height: 100px;
+    display: inline-block;
+}
+.mtrParam {
+    width: 194px;
+    height: 188px;
+    display: inline-block;
+    overflow-y: auto;
+}
+
+.mtrParamTitle {
+    width: 100%;
+    height: auto;
+    position:relative;
+    background-color: #aaaaaa;
+}
+
+.mtrParamDetail {
+    width: 100%;
+    height: 170px;
+    overflow-y: auto;
+}
+.mtrExistParam {
+    margin-left: 4px;
+    width: 190px;
+}
+
+.mepList{
+    width: 190px;
+    height: auto;
+}
+
+.mepBox {
+    margin: 2px auto;
+}
+
+.mepCheck {
+    width: 20px;
+    display: inline-block;
+}
+.mepLabel {
+    width: 65px;
+    display: inline-block;
+}
+.mepInput {
+    width: 70px;
+    display: inline-block;
+}
+.mepButton {
+    width: 21px;
+    display: inline-block;
+}
+.mepItem {
+    width: 60px;
+    height: auto;
+    display: inline-block;
+}
+.mepBtn {
+    width: 19px;
+    height: 19px;
+}
+
+.mtrBasic {
+    width: 489px;
+    height: 120px;
+    margin-bottom: 8px;
+}
+
+.mtrBasicTitle {
+    width:489px;
+    height: auto;
+    background-color: #aaaaaa;
+}
+
+.mtrBasicList {
+    white-space: nowrap;
+    overflow: auto;
+}
+.mtrBasicItem {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+}
+.mtrVaria {
+    width: 489px;
+    height: 120px;
+}
+
+.mtrVariaTitle {
+    width:489px;
+    height: auto;
+    background-color: #aaaaaa;
+}
+
+.mtrVariaList {
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.mtrVariaItem {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+}
+/*******Button*******/
+.cButton {
+    width: 789px;
+    height: 50px;
+    text-align: center;
+}
+
+.bBtns {
+    width:400px;
+    height: auto;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.bBtn {
+    border-radius: 10px;
+    margin: auto 10px auto 10px;
+}
+
+/*************** canvas *****************/
+.tCanvas {
+    width: 70%;
+    margin: 0 auto;
+}
+.canvas {
+    width: 400px;
+    height: 280px;
+    border: 1px solid #000;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.mtrImgProp {
+    width: auto;
+    height: 290px;
+    margin: 5px;
+}
+
+.tControls {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.bControl {
+    display: inline-block;
+}
+
+.bFile {
+    width: 170px;
+}
+
+.sltNum {
+    width: 40px;
+}
+.sltText {
+    width: 95px;
+}
