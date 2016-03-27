@@ -61,9 +61,11 @@ function setMtrDiffuse(model, texture) {
         boxMaterial.map = texture;
         boxMaterial.metal = true;
         boxMaterial.shading = config.shading;
+
     } else {
         model.material = new THREE.MeshPhongMaterial({map: texture});
     }
+    alert(mesh.children.length);
 }
 
 function setMtrSpecular(model, texture) {
@@ -106,6 +108,7 @@ function setMtrReflect(model, texture) {
         materialColor.setRGB(1.0, 1.0, 1.0);
 
         boxMaterial.map = null;
+        boxMaterial.bumpMap = null;
         //boxMaterial.color = materialColor;
         //boxMaterial.envMap = envirCube;
         //var boxMaterial = model.material;
@@ -246,19 +249,19 @@ function setObjLoad(index) {
             loadNewModel(1, 0, 0, 10);
             break;
         case '3':
-            loadNewModel(2, 0, 100, 700);
+            loadNewModel(2, 0, 20, 700);
             break;
         case '4':
-            loadNewModel(3, 0, 100, 700);
+            loadNewModel(3, 0, 20, 1000);
             break;
         case '5':
-            loadNewModel(4, 0, 100, 700);
+            loadNewModel(4, 0, 20, 700);
             break;
         case '6':
-            loadNewModel(5, 0, 100, 700);
+            loadNewModel(5, 0, 0, 100);
             break;
         case '7':
-            loadNewModel(6, 0, 100, 700);
+            loadNewModel(6, 0, 20, 800);
             break;
     }
 }

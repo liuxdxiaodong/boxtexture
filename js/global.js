@@ -109,6 +109,17 @@ var objIdxList = [
     7
 ];
 
+var objBoxNum = [
+    1,
+    31,
+    8,
+    6,
+    16,
+    10,
+    8,
+    39
+];
+
 var sltBoxObj = document.getElementById(config.BOXINDEX);
 var sltMtrGroup = document.getElementById(config.MTRGROUP);
 var sltObjGroup = document.getElementById(config.OBJGROUP);

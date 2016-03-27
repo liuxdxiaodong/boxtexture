@@ -55,7 +55,6 @@ function init() {
     /*****************controls***************************/
     control = new THREE.TrackballControls(camera, container);
     control.enabled = false;
-
     /*****************renderer**************************/
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(container.offsetWidth, container.offsetHeight);
@@ -113,7 +112,6 @@ function addEvent() {
     clickBtnEvent();
     clickLoadBtn(config.LOADBTNID);
 
-    addBoxOpt2Slt();
     addObjOpt2Slt();
     addMtr2Group();
 
@@ -122,7 +120,7 @@ function addEvent() {
 
     checkAutoMan(config.AUTOFORMID, 0);
     checkAutoMan(config.MANFORMID, 1);
-    checkSplit(config.SPLITFORMID);
+    checkSplit();
 
     for(var i=0; i < MODECHECKID.length; i++ ) {
         checkMode(MODECHECKID[i], i);

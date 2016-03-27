@@ -116,9 +116,13 @@ function checkAutoMan(id, index) {
 }
 
 function checkSplit(id) {
-    var el = document.getElementById(id);
-    el.addEventListener('change', function () {
-        sltBoxObj.disabled = this.checked === true ? false : true;
+    chkSplitObj.addEventListener('change', function () {
+        if (this.checked === true) {
+            sltBoxObj.disabled = false;
+            boxIdx = sltBoxObj.value;
+        } else {
+            sltBoxObj.disabled = true;
+        }
     });
 }
 
@@ -127,7 +131,7 @@ function changeOpt() {
         setParamInit();
         var index = this.value;
         setObjLoad(index);
-
+        addBoxOpt2Slt(index);
     });
 
     sltBoxObj.addEventListener('change', function() {
@@ -144,15 +148,20 @@ function changeOpt() {
 
 }
 
-function addBoxOpt2Slt() {
-    var optNum = 30;
-    for (var i = 0; i <= optNum; i++) {
+function addBoxOpt2Slt(index) {
+    sltBoxObj.options.length = 0;
+    var optNum = objBoxNum[index];
+    for (var i = 0; i < optNum; i++) {
         var optObj = document.createElement('option');
         optObj.value = i;
         optObj.text = i;
         sltBoxObj.appendChild(optObj);
     }
-    sltBoxObj.disabled = true;
+    if(chkSplitObj.checked) {
+        sltBoxObj.disabled = false;
+    } else {
+        sltBoxObj.disabled = true;
+    }
 }
 
 function addMtr2Group() {
