@@ -23,16 +23,15 @@ function init() {
     /*************scene**********************/
     scene = new THREE.Scene();
 
-    ambientLight = new THREE.AmbientLight(aLevel);
-    spotLight = new THREE.SpotLight(0xffffff);
+    ambientLight = new THREE.AmbientLight(config.ambientColor);
+    spotLight = new THREE.DirectionalLight(config.spotLightColor);
     spotLight.position.set(-100, 200, 500);
     spotLight.castShadow = true;
     var geo = new THREE.PlaneGeometry(2000, 2000, 8, 8);
     plane = new THREE.Mesh(geo, new THREE.MeshBasicMaterial( {visible: false}));
     //scene.add(plane);
-    scene.add(spotLight);
     scene.add(ambientLight);
-
+    scene.add(spotLight);
     /********************reflection map ********************/
     envirCube = THREE.ImageUtils.loadTextureCube(envirUrls);
     //var envirCube = THREE.CubeTextureLoader(envirUrls);
@@ -95,9 +94,9 @@ function loadModel(index) {
         }
         scene.add(mesh);
     });
-    var objmtl = objMtlFiles[index];
-    loader.load(objmtl[0], objmtl[1]);
+    loader.load(objFiles[index], mtlFiles[index]);
 }
+
 
 function testModel() {
     var sphereTexture = new THREE.ImageUtils.loadTexture(config.DEFAULTIMG);
@@ -181,12 +180,5 @@ function changeIptValueEvent() {
         changeIptValue(ipt, attr);
     }
 }
-//
-//function setTextColor(picker) {
-//    var bLevel = '0x' + picker.toString();
-//    //scene.ambient.value = bLevel;
-//    scene.ambient.color = aLevel;
-//}
-
 
 

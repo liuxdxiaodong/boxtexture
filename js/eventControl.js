@@ -28,7 +28,6 @@ function clickMbt(id, index) {
             } else {
                 box = mesh.children[boxIdx];
             }
-            console.log(box);
             if(materialAttr) {
                 setMtrBox(box,bTexture, materialAttr);
                 var labelImg = BPATH + config.S + BLIST[index];
@@ -72,7 +71,7 @@ function clickMvt(id, index) {
 function clickModeBtn(id, attr, index) {
     var el = document.getElementById(id);
     el.addEventListener('click', function () {
-        if(boxIdx || checkSltObj() ) {
+        if(boxIdx || checkSltObj(index) || index === 0) {
             materialAttr = attr;
             setBorder(config.MTRBID, 1);
             setModeVis(materialAttr);

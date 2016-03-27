@@ -2,8 +2,8 @@
  * Created by XiaodongLiu on 2016/3/7.
  */
 /************************* 选择不同帖图方式后选择图片帖图 ***************************/
-function setMtrBox(model, texture,  mode) {
-    switch(mode) {
+function setMtrBox(model, texture, mode) {
+    switch (mode) {
         case config.AMBIENT:
             setMtrAmbient(model, texture);
             break;
@@ -29,83 +29,78 @@ function setMtrBox(model, texture,  mode) {
 }
 
 function setMtrAmbient(model, texture) {
-    if(chkSplitObj.checked === false)
-    {
+    if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
         boxMaterial.metal = true;
         boxMaterial.shading = config.shading;
     } else {
-        model.material =  new THREE.MeshPhongMaterial({
+        model.material = new THREE.MeshPhongMaterial({
             map: texture, metal: true, shading: THREE.SmoothShading
         });
     }
 }
 
 function setMtrShininess(model, texture) {
-    if(chkSplitObj.checked === false)
-    {
+    if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
         boxMaterial.metal = true;
         boxMaterial.shading = config.shading;
         boxMaterial.shininess = config.shininess;
     } else {
-        model.material =  new THREE.MeshPhongMaterial({
+        model.material = new THREE.MeshPhongMaterial({
             map: texture, metal: true, shading: THREE.SmoothShading, shininess: config.shininess
         });
     }
 }
 
 function setMtrDiffuse(model, texture) {
-    if(chkSplitObj.checked === false)
-    {
+    if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
         boxMaterial.metal = true;
         boxMaterial.shading = config.shading;
     } else {
-        model.material =  new THREE.MeshPhongMaterial({map: texture} );
+        model.material = new THREE.MeshPhongMaterial({map: texture});
     }
 }
 
 function setMtrSpecular(model, texture) {
-    if(chkSplitObj.checked === false)
-    {
+    if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.specularMap = texture;
-        boxMaterial.specular = config.specular;
+        boxMaterial.specular = new THREE.Color(config.specular);
+        boxMaterial.shininess = 10;
+        console.log(boxMaterial);
     } else {
-        model.material =  new THREE.MeshPhongMaterial( {map: texture} );
+        model.material = new THREE.MeshPhongMaterial({map: texture});
     }
 }
 
 function setMtrTransparent(model, texture) {
-    if(chkSplitObj.checked === false)
-    {
+    if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
         boxMaterial.transparent = config.transparent;
     } else {
-        model.material =  new THREE.MeshPhongMaterial( {map: texture} );
+        model.material = new THREE.MeshPhongMaterial({map: texture});
     }
 }
 
 function setMtrBump(model, texture) {
-    if(chkSplitObj.checked === false)
-    {
+    if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
-        boxMaterial.map = texture;
+        //boxMaterial.map = texture;
         boxMaterial.bumpMap = texture;
         boxMaterial.bumpScale = 1000;
     } else {
-        model.material =  new THREE.MeshPhongMaterial( {map: texture} );
+        model.material = new THREE.MeshPhongMaterial({map: texture});
     }
 }
 
 function setMtrReflect(model, texture) {
-    if(chkSplitObj.checked === false)
-    {
+    if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         var materialColor = new THREE.Color();
         materialColor.setRGB(1.0, 1.0, 1.0);
@@ -122,15 +117,26 @@ function setMtrReflect(model, texture) {
 
         console.log(model.material);
     } else {
-        model.material =  new THREE.MeshPhongMaterial( {map: texture} );
+        model.material = new THREE.MeshPhongMaterial({map: texture});
     }
 }
 
 /************* 设置材质贴图模式的尺度 value *****************/
 
 function setMtrValue(value, mode) {
-    switch(mode) {
-        case config.DIFFUSE:
+    if (checkSltObj()) {
+        var box = mesh;
+    } else {
+        var box = mesh.children[boxIdx];
+    }
+    var boxMaterial = box.material;
+
+    switch (mode) {
+        case config.AMBIENT:
+            var col = new THREE.Color('#' + value);
+            //scene.__lights[0].color.set(col);
+            boxMaterial.ambient = col;
+            console.log(boxMaterial);
             break;
         case config.SHININESS:
 
@@ -138,10 +144,13 @@ function setMtrValue(value, mode) {
         case config.DIFFUSE:
             break;
         case config.SPECULAR:
+            boxMaterial.specular = new THREE.Color(1, 1, 1);
             break;
         case config.TRANSPARENT:
+            boxMaterial.transparent = value;
             break;
         case config.BUMP:
+            boxMaterial.bumpScale = value;
             break;
         case config.REFLECT:
             break;
@@ -150,7 +159,7 @@ function setMtrValue(value, mode) {
 }
 /************鼠标点击modeBtn clickBtn()调用**************/
 
-function setBorder( id, width) {
+function setBorder(id, width) {
     var el = document.getElementById(id);
     if (width === 0) {
         el.style.border = width;
@@ -160,7 +169,7 @@ function setBorder( id, width) {
 }
 
 function setModeVis(mode) {
-    switch(mode) {
+    switch (mode) {
         case config.DIFFUSE:
             setVisual(iDiffuse);
             break;
@@ -184,7 +193,7 @@ function setModeVis(mode) {
 
 function setVisual(data) {
     var len = data.length;
-    for(var i=0; i<len; i++) {
+    for (var i = 0; i < len; i++) {
         var el = document.getElementById(BID[i]);
         el.style.display = data[i] === 0 ? 'none' : 'inline-block';
     }
@@ -204,7 +213,7 @@ function setModeGroup(index) {
 }
 
 function setModeCheck(mode) {
-    for(var i=0; i<mode.length; i++) {
+    for (var i = 0; i < mode.length; i++) {
         var check = document.getElementById(MODECHECKID[i]);
         var input = document.getElementById(MODEINPUTID[i]);
         var btn = document.getElementById(MODEBTNID[i]);
@@ -224,36 +233,47 @@ function setBtnBg(index, imgUrl) {
 
 /***************** 选择要加载的模型 0测试球 1包装盒 2包装盒******************/
 function setObjLoad(index) {
-    switch(index) {
+    switch (index) {
         case '0':
             scene.remove(mesh);
             testModel();
-            setCameraPosition( 0, 0, 200);
+            setCameraPosition(0, 0, 200);
             break;
         case '1':
-            scene.remove(mesh);
-            loadModel(0);
-            setCameraPosition( 0, 100, 700);
+            loadNewModel(0, 100, 100, 700);
             break;
         case '2':
-            scene.remove(mesh);
-            loadModel(1);
-            setCameraPosition( 100, 100, 700 )
+            loadNewModel(1, 0, 0, 10);
             break;
         case '3':
-            scene.remove(mesh);
-            loadModel(2);
-            setCameraPosition(0, 0, 10);
+            loadNewModel(2, 0, 100, 700);
+            break;
+        case '4':
+            loadNewModel(3, 0, 100, 700);
+            break;
+        case '5':
+            loadNewModel(4, 0, 100, 700);
+            break;
+        case '6':
+            loadNewModel(5, 0, 100, 700);
+            break;
+        case '7':
+            loadNewModel(6, 0, 100, 700);
             break;
     }
 }
 
+function loadNewModel(index, x, y, z) {
+    scene.remove(mesh);
+    loadModel(index);
+    setCameraPosition(x, y ,z);
+}
 /****************** 将部分全局变量清除，还原为空 ********************/
 function setParamInit() {
     boxIdx = null;
     materialAttr = null;
 }
 
-function setCameraPosition( x, y, z) {
+function setCameraPosition(x, y, z) {
     camera.position.set(x, y, z);
 }
