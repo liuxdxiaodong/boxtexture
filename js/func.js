@@ -65,7 +65,6 @@ function setMtrDiffuse(model, texture) {
     } else {
         model.material = new THREE.MeshPhongMaterial({map: texture});
     }
-    alert(mesh.children.length);
 }
 
 function setMtrSpecular(model, texture) {
@@ -104,11 +103,10 @@ function setMtrBump(model, texture) {
 function setMtrReflect(model, texture) {
     if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
-        var materialColor = new THREE.Color();
-        materialColor.setRGB(1.0, 1.0, 1.0);
 
-        boxMaterial.map = null;
-        boxMaterial.bumpMap = null;
+        boxMaterial.envMap = envirCube;
+        //boxMaterial.map = null;
+        //boxMaterial.bumpMap = null;
         //boxMaterial.color = materialColor;
         //boxMaterial.envMap = envirCube;
         //var boxMaterial = model.material;
@@ -116,8 +114,6 @@ function setMtrReflect(model, texture) {
         //boxMaterial.envMap = envirCube;
         //boxMaterial.reflectivity = config.reflectivity;
         //model.material = new THREE
-
-
         console.log(model.material);
     } else {
         model.material = new THREE.MeshPhongMaterial({map: texture});
@@ -139,7 +135,6 @@ function setMtrValue(value, mode) {
             var col = new THREE.Color('#' + value);
             //scene.__lights[0].color.set(col);
             boxMaterial.ambient = col;
-            console.log(boxMaterial);
             break;
         case config.SHININESS:
 

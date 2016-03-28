@@ -34,7 +34,6 @@ function init() {
     scene.add(spotLight);
     /********************reflection map ********************/
     envirCube = THREE.ImageUtils.loadTextureCube(envirUrls);
-    //var envirCube = THREE.CubeTextureLoader(envirUrls);
     var envirShader = THREE.ShaderLib['cube'];
     envirShader.uniforms['tCube'].value = envirCube;
 
@@ -48,10 +47,8 @@ function init() {
 
     var boxGeo = new THREE.CubeGeometry(3000, 3000, 3000);
     skyBox = new THREE.Mesh(boxGeo, skyboxMaterial);
-    sceneCube = new THREE.Scene();
-    sceneCube.add(skyBox);
-    sceneCube.add(scene);
 
+    sceneCube = new THREE.Scene();
     /*****************controls***************************/
     control = new THREE.TrackballControls(camera, container);
     control.enabled = false;
@@ -72,9 +69,11 @@ function render() {
 
     control.update();
     renderer.render(scene, camera);
-
-    skyBox.position.copy( camera.position);
-    renderer.render(sceneCube, camera);
+    if(SETBGSHOW === 1) {
+        renderer.autoClear = false;
+        skyBox.position.copy( camera.position);
+        renderer.render(sceneCube, camera);
+    }
 }
 
 /************* 加载模型 *********************/
@@ -98,10 +97,10 @@ function loadModel(index) {
 
 
 function testModel() {
-    var sphereTexture = new THREE.ImageUtils.loadTexture(config.DEFAULTIMG);
-    //var sphereTexture = new THREE.TextureLoader(config.DEFAULTIMG);
     var sphere = new THREE.SphereGeometry(20, 20, 20);
-    var sphereMaterial = new THREE.MeshPhongMaterial( {map: sphereTexture, overdraw: 0.5});
+    var mtrColor = new THREE.Color();
+    mtrColor.setRGB( 1.0, 1.0, 1.0);
+    var sphereMaterial = new THREE.MeshPhongMaterial( {color:mtrColor, overdraw: 0.5});
     mesh = new THREE.Mesh(sphere, sphereMaterial);
     scene.add(mesh);
 }
@@ -110,17 +109,19 @@ function addEvent() {
 
     clickImgEvent();
     clickBtnEvent();
-    clickLoadBtn(config.LOADBTNID);
+    clickLoadBtn(config.BTNLOADID);
 
     addObjOpt2Slt();
     addMtr2Group();
-
+    addBoxOpt2Slt(0);
     changeOpt();
     changeIptValueEvent();
 
-    checkAutoMan(config.AUTOFORMID, 0);
-    checkAutoMan(config.MANFORMID, 1);
+
+    checkAutoMan(config.RDOAUTOFORMID, 0);
+    checkAutoMan(config.RDOMANFORMID, 1);
     checkSplit();
+    checkBackground();
 
     for(var i=0; i < MODECHECKID.length; i++ ) {
         checkMode(MODECHECKID[i], i);

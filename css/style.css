@@ -65,7 +65,7 @@ a:hover {
 
 .objScene {
     width: 489px;
-    height:338px;
+    height:318px;
     margin: 2px auto;
 }
 
@@ -235,8 +235,6 @@ a:hover {
     margin: 0 auto;
 }
 .canvas {
-    width: 400px;
-    height: 280px;
     border: 1px solid #000;
     margin: 10px auto;
     text-align: center;

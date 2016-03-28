@@ -15,10 +15,10 @@ var btnSave = document.getElementById('uSaveBtn');
 var ctxA = loadImgCanvas.getContext('2d');
 var ctxB = outImgCanvas.getContext('2d');
 
-var canvasHeight = loadImgCanvas.height;
-var canvasWidth = loadImgCanvas.width;
-
 var imgWidth, imgHeight, imgSrc;
+var canvasHeight = 300;
+loadImgCanvas.height = canvasHeight;
+outImgCanvas.height = loadImgCanvas.height;
 
 var startX = 0,
     startY = 0,
@@ -80,25 +80,14 @@ function readFile() {
         var img = new Image();
         img.src = imgSrc;
         img.onload = function () {
-            //var scale = canvasHeight / this.height;
-            //imgWidth = this.width * scale;
-            //imgHeight = this.height * scale;
-            imgWidth = loadImgCanvas.width;
-            imgHeight = loadImgCanvas.height;
-            var oc   = document.createElement('canvas'),
-                octx = oc.getContext('2d');
-
-            //oc.width  = img.width  * 0.8;
-            //oc.height = img.height * 0.8;
-            oc.width = imgWidth;
-            oc.height = imgHeight;
-            octx.drawImage(img, 0, 0, oc.width, oc.height);
-
-            octx.drawImage(oc, 0, 0, oc.width, oc.height);
+            var scale = canvasHeight / this.height;
+            imgWidth = this.width * scale;
+            imgHeight = this.height * scale;
+            loadImgCanvas.width = imgWidth;
+            outImgCanvas.width = imgWidth;
+            canvasWidth = loadImgCanvas.width;
             clearCanvas(ctxA);
-            //ctxA.drawImage(img, startX, startY, imgWidth, imgHeight);
-            ctxA.drawImage(oc, 0, 0, oc.width, oc.height,
-                0, 0, imgWidth,   imgHeight);
+            ctxA.drawImage(img, startX, startY, imgWidth, imgHeight);
             modeSlt.options[0].selected = true;
             modeHandle(modeSlt.value);
         }

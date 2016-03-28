@@ -115,7 +115,7 @@ function checkAutoMan(id, index) {
     });
 }
 
-function checkSplit(id) {
+function checkSplit() {
     chkSplitObj.addEventListener('change', function () {
         if (this.checked === true) {
             sltBoxObj.disabled = false;
@@ -124,6 +124,20 @@ function checkSplit(id) {
             sltBoxObj.disabled = true;
         }
     });
+}
+
+function checkBackground() {
+    chkBg.addEventListener('change', function() {
+        if(this.checked === true) {
+            sceneCube.add(skyBox);
+            sceneCube.add(scene);
+            SETBGSHOW = 1;
+        } else {
+            sceneCube.remove(skyBox);
+            sceneCube.remove(scene);
+            SETBGSHOW = 0;
+        }
+    })
 }
 
 function changeOpt() {
@@ -138,6 +152,7 @@ function changeOpt() {
         selectIndex = this.value;
         if(chkSplitObj.checked === true) {
             boxIdx = selectIndex;
+            console.log(mesh.children[boxIdx].material.map.image.src);
         }
     });
 

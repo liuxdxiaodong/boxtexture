@@ -16,6 +16,8 @@ var mesh = null,
     materialAttr;
 
 var AUTOMAN = 0;
+var SETBGSHOW = 0;
+
 var VPATH = 'images/mvt/';
 var BPATH = 'images/mbt/';
 var EPATH = 'images/met/';
@@ -34,18 +36,19 @@ var config = {
     MTREID: 'mtrExistId',
     MTRBID: 'mtrBasicId',
     MTRVID: 'mtrVariaId',
-    LOADBTNID: 'upLoadBtn',
-    OKBTNID: 'okBtn',
-    SUBMITBTNID: 'submitBtn',
-    CANCELBTNID: 'cancelBtn',
+    BTNLOADID: 'upLoadBtn',
+    BTNOKID: 'okBtn',
+    BTNSUBMITID: 'submitBtn',
+    BTNCANCELID: 'cancelBtn',
 
-    AUTOFORMID: 'autoForm',
-    MANFORMID: 'manForm',
-    SPLITFORMID: 'sForm',
-    BOXINDEX: 'boxArrange',
-    AUTOMANAME: 'forms',
-    MTRGROUP: 'mtrGroup',
-    OBJGROUP: 'objGroup',
+    RDOAUTOFORMID: 'autoForm',
+    RDOMANFORMID: 'manForm',
+    CHKSPLITFORMID: 'sForm',
+    CHKAUTOMANAME: 'forms',
+    CHKBACKGROUND: 'chkBg',
+    SLTBOXINDEX: 'boxArrange',
+    SLTMTRGROUP: 'mtrGroup',
+    SLTOBJGROUP: 'objGroup',
 
     AMBIENT: 'ambient',
     SHININESS: 'shininess',
@@ -77,6 +80,12 @@ var config = {
     metal: true,
     shading: THREE.SmoothShading
 };
+
+var sltBoxObj = document.getElementById(config.SLTBOXINDEX);
+var sltMtrGroup = document.getElementById(config.SLTMTRGROUP);
+var sltObjGroup = document.getElementById(config.SLTOBJGROUP);
+var chkSplitObj = document.getElementById(config.CHKSPLITFORMID);
+var chkBg = document.getElementById(config.CHKBACKGROUND);
 
 var objFiles = [
     'data/model_tea/tea2.obj',
@@ -119,11 +128,6 @@ var objBoxNum = [
     8,
     39
 ];
-
-var sltBoxObj = document.getElementById(config.BOXINDEX);
-var sltMtrGroup = document.getElementById(config.MTRGROUP);
-var sltObjGroup = document.getElementById(config.OBJGROUP);
-var chkSplitObj = document.getElementById(config.SPLITFORMID);
 
 var mtrModeGroup = [
     '高光帖图',
