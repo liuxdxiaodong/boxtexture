@@ -16,10 +16,6 @@ function init() {
     /************container*******************/
     container = document.getElementById(config.CONTAINID);
 
-    /************camera**********************/
-    camera = new THREE.PerspectiveCamera(30, container.offsetWidth / container.offsetHeight, 0.1, 10000);
-    camera.position.set(0, 0, 200);
-
     /*************scene**********************/
     scene = new THREE.Scene();
 
@@ -32,6 +28,10 @@ function init() {
     //scene.add(plane);
     scene.add(ambientLight);
     scene.add(spotLight);
+
+    /************camera**********************/
+    camera = new THREE.PerspectiveCamera(30, container.offsetWidth / container.offsetHeight, 0.1, 10000);
+    camera.position.set(0, 0, 200);
     /********************reflection map ********************/
     envirCube = THREE.ImageUtils.loadTextureCube(envirUrls);
     var envirShader = THREE.ShaderLib['cube'];
@@ -52,6 +52,8 @@ function init() {
     /*****************controls***************************/
     control = new THREE.TrackballControls(camera, container);
     control.enabled = false;
+    control.position0.set(new THREE.Vector3(0,0,0));
+
     /*****************renderer**************************/
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(container.offsetWidth, container.offsetHeight);
@@ -76,34 +78,6 @@ function render() {
     }
 }
 
-/************* 加载模型 *********************/
-function loadModel(index) {
-    var loader = new THREE.OBJMTLLoader();
-    loader.addEventListener('load', function (event) {
-        var object = event.content;
-        object.rotation.x = 0.5;
-        object.position.y = -1;
-        mesh = object;
-        boxGroup = mesh.children;
-        for(var i=0; i < boxGroup.length; i++) {
-            var box = boxGroup[i];
-            var bMap = box.material;
-            //console.log(bMap);
-        }
-        scene.add(mesh);
-    });
-    loader.load(objFiles[index], mtlFiles[index]);
-}
-
-
-function testModel() {
-    var sphere = new THREE.SphereGeometry(20, 20, 20);
-    var mtrColor = new THREE.Color();
-    mtrColor.setRGB( 1.0, 1.0, 1.0);
-    var sphereMaterial = new THREE.MeshPhongMaterial( {color:mtrColor, overdraw: 0.5});
-    mesh = new THREE.Mesh(sphere, sphereMaterial);
-    scene.add(mesh);
-}
 /********************* 添加鼠标事件及复选框事件 *************************/
 function addEvent() {
 

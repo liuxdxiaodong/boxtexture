@@ -1,5 +1,5 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# 创建的文件:27.03.2016 10:41:50
+# 创建的文件:29.03.2016 09:01:54
 
 newmtl Material__69
 	Ns 10.0000
@@ -17,7 +17,7 @@ newmtl Material__69
 	map_d CCQ02SF1.png
 	map_bump CCQ02SF1.png
 	bump CCQ02SF1.png
-	map_refl 63_Raytrace.tga
+	map_refl Raytrace.tga
 
 newmtl Material__70
 	Ns 10.0000

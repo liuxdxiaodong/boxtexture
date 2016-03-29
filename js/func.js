@@ -64,6 +64,7 @@ function setMtrDiffuse(model, texture) {
 
     } else {
         model.material = new THREE.MeshPhongMaterial({map: texture});
+
     }
 }
 
@@ -258,6 +259,12 @@ function setObjLoad(index) {
         case '7':
             loadNewModel(6, 0, 20, 800);
             break;
+        case '8':
+            loadNewModel(7, 0, 20, 800);
+            break;
+        case '9':
+            loadNewModel(8, 746, 50, 60);
+            break;
     }
 }
 
@@ -266,6 +273,37 @@ function loadNewModel(index, x, y, z) {
     loadModel(index);
     setCameraPosition(x, y ,z);
 }
+
+/************* 加载模型 *********************/
+function loadModel(index) {
+    var loader = new THREE.OBJMTLLoader();
+    loader.addEventListener('load', function (event) {
+        var object = event.content;
+        object.rotation.x = 0.5;
+        //object.position.y = -1;
+        //object.position.set(new THREE.Vector3(0, 0, 0));
+        mesh = object;
+        boxGroup = mesh.children;
+        for(var i=0; i < boxGroup.length; i++) {
+            var box = boxGroup[i];
+            var bMap = box.material;
+            //console.log(bMap);
+        }
+        scene.add(mesh);
+        console.log(object.position);
+    });
+    loader.load(objFiles[index], mtlFiles[index]);
+}
+
+
+function testModel() {
+    var sphere = new THREE.SphereGeometry(20, 20, 20);
+    var mtrColor = new THREE.Color();
+    mtrColor.setRGB( 1.0, 1.0, 1.0);
+    var sphereMaterial = new THREE.MeshPhongMaterial( {color:mtrColor, overdraw: 0.5});
+    mesh = new THREE.Mesh(sphere, sphereMaterial);
+    scene.add(mesh);
+}
 /****************** 将部分全局变量清除，还原为空 ********************/
 function setParamInit() {
     boxIdx = null;
@@ -273,5 +311,6 @@ function setParamInit() {
 }
 
 function setCameraPosition(x, y, z) {
-    camera.position.set(x, y, z);
+    //camera.position.set(x, y, z);
+    camera.lookAt(new THREE.Vector3(0,0,0));
 }

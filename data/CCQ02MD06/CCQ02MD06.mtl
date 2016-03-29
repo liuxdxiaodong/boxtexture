@@ -1,0 +1,117 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# 创建的文件:29.03.2016 09:44:24
+
+newmtl wire_239164099
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.9373 0.6431 0.3882
+	Kd 0.9373 0.6431 0.3882
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Material__66
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka HY20060.jpg
+	map_Kd HY20060.jpg
+
+newmtl Material__64
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka S1001.jpg
+	map_Kd S1001.jpg
+	map_bump S1001.jpg
+	bump S1001.jpg
+
+newmtl Material__63
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka HY1007.JPG
+	map_Kd HY1007.JPG
+	map_bump HY1007.JPG
+	bump HY1007.JPG
+
+newmtl Material__65
+	Ns 55.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.7490 0.0706 0.0706
+	Kd 0.7490 0.0706 0.0706
+	Ks 0.5400 0.5400 0.5400
+	Ke 0.5333 0.0000 0.0000
+
+newmtl 11___Default
+	Ns 75.0000
+	Ni 1.5000
+	d 0.0000
+	Tr 1.0000
+	Tf 0.0000 0.0000 0.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.7200 0.7200 0.7200
+	Ke 0.0000 0.0000 0.0000
+	map_Ka CCQ02SF03-1.png
+	map_Kd CCQ02SF03-1.png
+	map_d CCQ02SF03.alpha.png
+	map_bump CCQ02SF03.alpha.png
+	bump CCQ02SF03.alpha.png
+	map_refl 73_Raytrace.tga
+
+newmtl Material__691
+	Ns 75.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.7255 0.6235 0.6235
+	Kd 0.7255 0.6235 0.6235
+	Ks 0.7200 0.7200 0.7200
+	Ke 0.0000 0.0000 0.0000
+	map_Ka HY1007.JPG
+	map_Kd HY1007.JPG
+	map_d CCQ02SF02.alpha.png
+	map_bump CCQ02SF02.alpha.png
+	bump CCQ02SF02.alpha.png
+
+newmtl 09___Default
+	Ns 0.0000
+	Ni 1.5000
+	d 0.0000
+	Tr 1.0000
+	Tf 0.0000 0.0000 0.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000

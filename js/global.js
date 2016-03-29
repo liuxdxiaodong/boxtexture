@@ -90,21 +90,25 @@ var chkBg = document.getElementById(config.CHKBACKGROUND);
 var objFiles = [
     'data/model_tea/tea2.obj',
     'data/model_package/package.obj',
-    'data/CCQ02MD01/chichaqu.obj',
+    'data/CCQ02MD01/CCQ02MD01.obj',
     'data/CCQ02MD02/CCQ02MD02.obj',
     'data/CCQ02MD03/CCQ02MD03.obj',
     'data/CCQ02MD04/CCQ02MD04.obj',
-    'data/CCQ02MD05/CCQ02MD05.obj'
+    'data/CCQ02MD05/CCQ02MD05.obj',
+    'data/CCQ02MD06/CCQ02MD06.obj',
+    'data/CCQ02MD07/CCQ02MD07.obj',
 ];
 
 var mtlFiles = [
     'data/model_tea/tea2.mtl',
     'data/model_package/package.mtl',
-    'data/CCQ02MD01/chichaqu.mtl',
+    'data/CCQ02MD01/CCQ02MD01.mtl',
     'data/CCQ02MD02/CCQ02MD02.mtl',
     'data/CCQ02MD03/CCQ02MD03.mtl',
     'data/CCQ02MD04/CCQ02MD04.mtl',
-    'data/CCQ02MD05/CCQ02MD05.mtl'
+    'data/CCQ02MD05/CCQ02MD05.mtl',
+    'data/CCQ02MD06/CCQ02MD06.mtl',
+    'data/CCQ02MD07/CCQ02MD07.mtl'
 ];
 
 var objIdxList = [
@@ -115,7 +119,9 @@ var objIdxList = [
     4,
     5,
     6,
-    7
+    7,
+    8,
+    9
 ];
 
 var objBoxNum = [
@@ -126,7 +132,9 @@ var objBoxNum = [
     16,
     10,
     8,
-    39
+    39,
+    18,
+    43
 ];
 
 var mtrModeGroup = [

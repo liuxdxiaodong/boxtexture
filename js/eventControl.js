@@ -152,7 +152,7 @@ function changeOpt() {
         selectIndex = this.value;
         if(chkSplitObj.checked === true) {
             boxIdx = selectIndex;
-            console.log(mesh.children[boxIdx].material.map.image.src);
+            materialAttr = null;
         }
     });
 
