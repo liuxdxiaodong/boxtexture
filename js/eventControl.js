@@ -208,76 +208,19 @@ function checkMode(id, index) {
     })
 }
 
-//
-//function changeParam(id) {
-//    var el = document.getElementById(id);
-//    el.addEventListener('change', function () {
-//        scene.remove(ambient);
-//        var txt = this.value;
-//        aLevel = '0x' + txt.toString();
-//        alert(aLevel);
-//        //ambient.value = aLevel;
-//        //scene.add(ambient);
-//    });
-//}
+/************** 控制光源位置 **************/
+function changeLightPos() {
+    iptLightX.addEventListener('change', function() {
+        scene.__lights[1].position.x = this.value;
+    });
+    iptLightY.addEventListener('change', function() {
+        scene.__lights[1].position.y = this.value;
+    });
+    iptLightZ.addEventListener('change', function() {
+        scene.__lights[1].position.z = this.value;
+    });
+    iptLightIts.addEventListener('change', function() {
+        scene.__lights[1].intensity = this.value;
+    })
+}
 
-/************************ 鼠标点击物件移动box ************************/
-//function onDocumentMouseMove(event) {
-//    event.preventDefault();
-//    mouse.x = (event.clientX / container.offsetWidth) * 2 - 1;
-//    mouse.y = (event.clientY / container.offsetHeight) * 2 - 1;
-//
-//    raycaster.setFromCamera(mouse, camera);
-//    if(SELECTED) {
-//        var intersects = raycaster.intersectObject( plane );
-//        if(intersects.length > 0) {
-//            SELECTED.position.copy( intersects[0].point.sub( offset));
-//        }
-//        return;
-//    }
-//    var intersects = raycaster.intersectObjects(boxGroup);
-//    if(intersects.length > 0) {
-//        if(INTERSECTED !== intersects[0].object) {
-//            if(INTERSECTED) {
-//                INTERSECTED.material.color.setHex( INTERSECTED.currentHex);
-//            }
-//            INTERSECTED = intersects[0].object;
-//            INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
-//
-//            plane.position.copy(INTERSECTED.position);
-//            plane.lookAt(camera.position);
-//        }
-//        container.style.cursor = 'pointer';
-//    } else {
-//        if(INTERSECTED) {
-//            INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
-//        }
-//        INTERSECTED = null;
-//        container.style.cursor = 'auto';
-//    }
-//}
-//
-//function onDocumentMouseDown(event) {
-//    event.preventDefault();
-//    raycaster.setFromCamera( mouse, camera);
-//    var intersects = raycaster.intersectObjects( boxGroup );
-//    if (intersects.length > 0) {
-//        control.enabled = false;
-//        SELECTED = intersects[0].object;
-//        var intersects = raycaster.intersectObject(plane);
-//        if ( intersects.length > 0) {
-//            offset.copy(intersects[0].point).sub(plane.position);
-//        }
-//        container.style.cursor = 'move';
-//    }
-//}
-//
-//function onDocumentMouseUp(event) {
-//    event.preventDefault();
-//    control.enabled = true;
-//    if(INTERSECTED) {
-//        plane.position.copy(INTERSECTED.position);
-//        SELECTED = null;
-//    }
-//    container.style.cursor = 'auto';
-//}

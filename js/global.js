@@ -31,6 +31,17 @@ var envirUrls = [
 var diffuseColor = new THREE.Color();
 var specularColor = new THREE.Color();
 
+var parameter = {
+    LIGHTPOSX: 0,
+    LIGHTPOSY: 200,
+    LIGHTPOSZ: 700,
+    LIGHTITS: 1,
+
+    CAMERAX: 0,
+    CAMERAY: 0,
+    CAMERAZ: 200
+};
+
 var config = {
     CONTAINID: 'jScene',
     MTREID: 'mtrExistId',
@@ -49,6 +60,11 @@ var config = {
     SLTBOXINDEX: 'boxArrange',
     SLTMTRGROUP: 'mtrGroup',
     SLTOBJGROUP: 'objGroup',
+
+    IPTLIGHTX: 'lightX',
+    IPTLIGHTY: 'lightY',
+    IPTLIGHTZ: 'lightZ',
+    IPTLIGHTITS: 'lightIntense',
 
     AMBIENT: 'ambient',
     SHININESS: 'shininess',
@@ -86,6 +102,11 @@ var sltMtrGroup = document.getElementById(config.SLTMTRGROUP);
 var sltObjGroup = document.getElementById(config.SLTOBJGROUP);
 var chkSplitObj = document.getElementById(config.CHKSPLITFORMID);
 var chkBg = document.getElementById(config.CHKBACKGROUND);
+
+var iptLightX = document.getElementById(config.IPTLIGHTX);
+var iptLightY = document.getElementById(config.IPTLIGHTY);
+var iptLightZ = document.getElementById(config.IPTLIGHTZ);
+var iptLightIts = document.getElementById(config.IPTLIGHTITS);
 
 var objFiles = [
     'data/model_tea/tea2.obj',

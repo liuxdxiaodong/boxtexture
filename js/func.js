@@ -236,46 +236,46 @@ function setObjLoad(index) {
         case '0':
             scene.remove(mesh);
             testModel();
-            setCameraPosition(0, 0, 200);
+            camera.position.z = 200;
             break;
         case '1':
-            loadNewModel(0, 100, 100, 700);
+            loadNewModel(0, 0, -10, 20, 700);
             break;
         case '2':
-            loadNewModel(1, 0, 0, 10);
+            loadNewModel(1, 0, -1, -0.5, 10);
             break;
         case '3':
-            loadNewModel(2, 0, 20, 700);
+            loadNewModel(2, 50, -50, 25, 700);
             break;
         case '4':
-            loadNewModel(3, 0, 20, 1000);
+            loadNewModel(3, 0, -80, 0, 800);
             break;
         case '5':
-            loadNewModel(4, 0, 20, 700);
+            loadNewModel(4, 120,  20, -160, 800);
             break;
         case '6':
-            loadNewModel(5, 0, 0, 100);
+            loadNewModel(5, 250, 180, -450, 800);
             break;
         case '7':
-            loadNewModel(6, 0, 20, 800);
+            loadNewModel(6, 0, -100, 30, 800);
             break;
         case '8':
-            loadNewModel(7, 0, 20, 800);
+            loadNewModel(7, 120, 200, -450, 800);
             break;
         case '9':
-            loadNewModel(8, 746, 50, 60);
+            loadNewModel(8, -550, -100, 0, 800);
             break;
     }
 }
 
-function loadNewModel(index, x, y, z) {
+function loadNewModel(index, x, y, z, cz) {
     scene.remove(mesh);
-    loadModel(index);
-    setCameraPosition(x, y ,z);
+    loadModel(index, x, y, z);
+    camera.position.z = cz;
 }
 
 /************* 加载模型 *********************/
-function loadModel(index) {
+function loadModel(index, posX, posY, posZ) {
     var loader = new THREE.OBJMTLLoader();
     loader.addEventListener('load', function (event) {
         var object = event.content;
@@ -287,8 +287,9 @@ function loadModel(index) {
         for(var i=0; i < boxGroup.length; i++) {
             var box = boxGroup[i];
             var bMap = box.material;
-            //console.log(bMap);
         }
+        mesh.position.set(posX, posY, posZ);
+        console.log(mesh);
         scene.add(mesh);
         console.log(object.position);
     });

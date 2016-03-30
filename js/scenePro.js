@@ -6,6 +6,7 @@ if (!Detector.webgl) {
 }
 
 window.onload = function() {
+    initParam();
     init();
     testModel();
     addEvent();
@@ -20,18 +21,22 @@ function init() {
     scene = new THREE.Scene();
 
     ambientLight = new THREE.AmbientLight(config.ambientColor);
-    spotLight = new THREE.DirectionalLight(config.spotLightColor);
-    spotLight.position.set(-100, 200, 500);
-    spotLight.castShadow = true;
-    var geo = new THREE.PlaneGeometry(2000, 2000, 8, 8);
-    plane = new THREE.Mesh(geo, new THREE.MeshBasicMaterial( {visible: false}));
-    //scene.add(plane);
     scene.add(ambientLight);
+
+    spotLight = new THREE.SpotLight(config.spotLightColor);
+    //spotLight = new THREE.DirectionalLight(config.spotLightColor);
+    spotLight.position.set(parameter.LIGHTPOSX, parameter.LIGHTPOSY, parameter.LIGHTPOSZ);
+    spotLight.intensity = parameter.LIGHTITS;
+    spotLight.castShadow = true;
     scene.add(spotLight);
+
+    var geo = new THREE.PlaneGeometry(2000, 2000, 8, 8);
+    plane = new THREE.Mesh(geo, new THREE.MeshBasicMaterial( {visible: true}));
+    //scene.add(plane);
 
     /************camera**********************/
     camera = new THREE.PerspectiveCamera(30, container.offsetWidth / container.offsetHeight, 0.1, 10000);
-    camera.position.set(0, 0, 200);
+    camera.position.set(parameter.CAMERAX, parameter.CAMERAY, parameter.CAMERAZ);
     /********************reflection map ********************/
     envirCube = THREE.ImageUtils.loadTextureCube(envirUrls);
     var envirShader = THREE.ShaderLib['cube'];
@@ -52,7 +57,6 @@ function init() {
     /*****************controls***************************/
     control = new THREE.TrackballControls(camera, container);
     control.enabled = false;
-    control.position0.set(new THREE.Vector3(0,0,0));
 
     /*****************renderer**************************/
     renderer = new THREE.WebGLRenderer({antialias: true});
@@ -78,6 +82,13 @@ function render() {
     }
 }
 
+/*********** 初始化参数 ***************/
+function initParam() {
+    iptLightX.value = parameter.LIGHTPOSX;
+    iptLightY.value = parameter.LIGHTPOSY;
+    iptLightZ.value = parameter.LIGHTPOSZ;
+    iptLightIts.value = parameter.LIGHTITS;
+}
 /********************* 添加鼠标事件及复选框事件 *************************/
 function addEvent() {
 
@@ -88,8 +99,10 @@ function addEvent() {
     addObjOpt2Slt();
     addMtr2Group();
     addBoxOpt2Slt(0);
+
     changeOpt();
     changeIptValueEvent();
+    changeLightPos();
 
 
     checkAutoMan(config.RDOAUTOFORMID, 0);
