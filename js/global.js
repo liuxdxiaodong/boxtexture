@@ -39,7 +39,19 @@ var parameter = {
 
     CAMERAX: 0,
     CAMERAY: 0,
-    CAMERAZ: 200
+    CAMERAZ: 200,
+
+
+    ambientColor: 0xaaaaaa,
+    spotLightColor: 0xffffff,
+    shininess: 5,
+    specular: 0xffffff,
+    bumpScale: 20,
+    transparent: 1,
+    reflectivity: 1,
+
+    metal: true,
+    shading: THREE.SmoothShading
 };
 
 var config = {
@@ -86,15 +98,6 @@ var config = {
     M: 'm',
     S: 's',
 
-    ambientColor: 0xaaaaaa,
-    spotLightColor: 0xffffff,
-    shininess: 5,
-    specular: 0xffffff,
-    transparent: 1,
-    reflectivity: 1,
-
-    metal: true,
-    shading: THREE.SmoothShading
 };
 
 var sltBoxObj = document.getElementById(config.SLTBOXINDEX);

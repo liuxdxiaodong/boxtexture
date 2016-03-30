@@ -33,12 +33,16 @@ function setMtrAmbient(model, texture) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
         boxMaterial.metal = true;
-        boxMaterial.shading = config.shading;
+        boxMaterial.shading = parameter.shading;
     } else {
         model.material = new THREE.MeshPhongMaterial({
             map: texture,
             metal: true,
+<<<<<<< HEAD
+            shading: parameter.shading
+=======
             shading: THREE.SmoothShading
+>>>>>>> origin/master
         });
     }
 }
@@ -48,14 +52,20 @@ function setMtrShininess(model, texture) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
         boxMaterial.metal = true;
-        boxMaterial.shading = config.shading;
-        boxMaterial.shininess = config.shininess;
+        boxMaterial.shading = parameter.shading;
+        boxMaterial.shininess = parameter.shininess;
     } else {
         model.material = new THREE.MeshPhongMaterial({
+<<<<<<< HEAD
+            map: texture, metal: true,
+            shading: parameter.shading,
+            shininess: parameter.shininess
+=======
             map: texture,
             metal: true,
             shading: config.shading,
             shininess: config.shininess
+>>>>>>> origin/master
         });
     }
 }
@@ -65,12 +75,16 @@ function setMtrDiffuse(model, texture) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
         boxMaterial.metal = true;
-        boxMaterial.shading = config.shading;
+        boxMaterial.shading = parameter.shading;
 
     } else {
         model.material = new THREE.MeshPhongMaterial({
             map: texture
         });
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
     }
 }
 
@@ -78,6 +92,16 @@ function setMtrSpecular(model, texture) {
     if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.specularMap = texture;
+<<<<<<< HEAD
+        boxMaterial.specular = new THREE.Color(parameter.specular);
+        boxMaterial.shininess = parameter.shininess;
+        console.log(boxMaterial);
+    } else {
+        model.material = new THREE.MeshPhongMaterial({
+            specularMap: texture,
+            specular: new THREE.Color(parameter.specular),
+            specular: parameter.shininess
+=======
         boxMaterial.specular = new THREE.Color(config.specular);
         boxMaterial.shininess = config.shininess;
     } else {
@@ -85,6 +109,7 @@ function setMtrSpecular(model, texture) {
             specularMap: texture,
             specular: new THREE.Color(config.specular),
             shininess: config.shininess
+>>>>>>> origin/master
         });
     }
 }
@@ -93,9 +118,12 @@ function setMtrTransparent(model, texture) {
     if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.map = texture;
-        boxMaterial.transparent = config.transparent;
+        boxMaterial.transparent = parameter.transparent;
     } else {
-        model.material = new THREE.MeshPhongMaterial({map: texture});
+        model.material = new THREE.MeshPhongMaterial({
+            map: texture,
+            transparent: parameter.transparent
+        });
     }
 }
 
@@ -104,9 +132,12 @@ function setMtrBump(model, texture) {
         var boxMaterial = model.material;
         //boxMaterial.map = texture;
         boxMaterial.bumpMap = texture;
-        boxMaterial.bumpScale = 1000;
+        boxMaterial.bumpScale = parameter.bumpScale;
     } else {
-        model.material = new THREE.MeshPhongMaterial({map: texture});
+        model.material = new THREE.MeshPhongMaterial({
+            bumpMap: texture,
+            bumpScale: parameter.bumpScale
+        });
     }
 }
 
@@ -150,6 +181,7 @@ function setMtrValue(value, mode) {
 
             break;
         case config.DIFFUSE:
+
             break;
         case config.SPECULAR:
             boxMaterial.specular = new THREE.Color(1, 1, 1);
