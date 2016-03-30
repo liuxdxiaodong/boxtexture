@@ -36,7 +36,9 @@ function setMtrAmbient(model, texture) {
         boxMaterial.shading = config.shading;
     } else {
         model.material = new THREE.MeshPhongMaterial({
-            map: texture, metal: true, shading: THREE.SmoothShading
+            map: texture,
+            metal: true,
+            shading: THREE.SmoothShading
         });
     }
 }
@@ -50,7 +52,10 @@ function setMtrShininess(model, texture) {
         boxMaterial.shininess = config.shininess;
     } else {
         model.material = new THREE.MeshPhongMaterial({
-            map: texture, metal: true, shading: THREE.SmoothShading, shininess: config.shininess
+            map: texture,
+            metal: true,
+            shading: config.shading,
+            shininess: config.shininess
         });
     }
 }
@@ -63,8 +68,9 @@ function setMtrDiffuse(model, texture) {
         boxMaterial.shading = config.shading;
 
     } else {
-        model.material = new THREE.MeshPhongMaterial({map: texture});
-
+        model.material = new THREE.MeshPhongMaterial({
+            map: texture
+        });
     }
 }
 
@@ -73,10 +79,13 @@ function setMtrSpecular(model, texture) {
         var boxMaterial = model.material;
         boxMaterial.specularMap = texture;
         boxMaterial.specular = new THREE.Color(config.specular);
-        boxMaterial.shininess = 10;
-        console.log(boxMaterial);
+        boxMaterial.shininess = config.shininess;
     } else {
-        model.material = new THREE.MeshPhongMaterial({map: texture});
+        model.material = new THREE.MeshPhongMaterial({
+            specularMap: texture,
+            specular: new THREE.Color(config.specular),
+            shininess: config.shininess
+        });
     }
 }
 
@@ -289,9 +298,7 @@ function loadModel(index, posX, posY, posZ) {
             var bMap = box.material;
         }
         mesh.position.set(posX, posY, posZ);
-        console.log(mesh);
         scene.add(mesh);
-        console.log(object.position);
     });
     loader.load(objFiles[index], mtlFiles[index]);
 }

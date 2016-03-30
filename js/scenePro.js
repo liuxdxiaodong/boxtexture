@@ -116,8 +116,6 @@ function addEvent() {
     //renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false);
     //renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false);
     //renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false);
-
-
 }
 
 /***************** 鼠标事件 ************************/
