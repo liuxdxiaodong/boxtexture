@@ -8,7 +8,7 @@ if (!Detector.webgl) {
 window.onload = function() {
     initParam();
     init();
-    testModel();
+    testModel(0,0,0);
     addEvent();
     render();
 };

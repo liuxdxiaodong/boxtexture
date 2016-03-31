@@ -121,6 +121,7 @@ var objFiles = [
     'data/CCQ02MD05/CCQ02MD05.obj',
     'data/CCQ02MD06/CCQ02MD06.obj',
     'data/CCQ02MD07/CCQ02MD07.obj',
+    'data/model_pd/PDMODEL.obj'
 ];
 
 var mtlFiles = [
@@ -132,7 +133,8 @@ var mtlFiles = [
     'data/CCQ02MD04/CCQ02MD04.mtl',
     'data/CCQ02MD05/CCQ02MD05.mtl',
     'data/CCQ02MD06/CCQ02MD06.mtl',
-    'data/CCQ02MD07/CCQ02MD07.mtl'
+    'data/CCQ02MD07/CCQ02MD07.mtl',
+    'data/model_pd/PDMODEL.mtl'
 ];
 
 var objIdxList = [
@@ -145,7 +147,8 @@ var objIdxList = [
     6,
     7,
     8,
-    9
+    9,
+    10
 ];
 
 var objBoxNum = [
@@ -158,7 +161,22 @@ var objBoxNum = [
     8,
     39,
     18,
-    43
+    43,
+    4
+];
+
+var mcPosLists = [
+    [0, 0, 0, 0, 200],
+    [1, 0, -10, 20, 700],
+    [2, 0, -1, -0.5, 10],
+    [3, 50, -50, 25, 700],
+    [4, 0, -80, 0, 800],
+    [5, 120,  20, -160, 800],
+    [6, 250, 180, -450, 800],
+    [7, 0, -100, 30, 800],
+    [8, 120, 200, -450, 800],
+    [9, -550, -100, 0, 800],
+    [10, 0, -30, 0, 500]
 ];
 
 var mtrModeGroup = [

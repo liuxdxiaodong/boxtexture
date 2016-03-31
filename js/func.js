@@ -251,46 +251,14 @@ function setBtnBg(index, imgUrl) {
 
 /***************** 选择要加载的模型 0测试球 1包装盒 2包装盒******************/
 function setObjLoad(index) {
-    switch (index) {
-        case '0':
-            scene.remove(mesh);
-            testModel();
-            camera.position.z = 200;
-            break;
-        case '1':
-            loadNewModel(0, 0, -10, 20, 700);
-            break;
-        case '2':
-            loadNewModel(1, 0, -1, -0.5, 10);
-            break;
-        case '3':
-            loadNewModel(2, 50, -50, 25, 700);
-            break;
-        case '4':
-            loadNewModel(3, 0, -80, 0, 800);
-            break;
-        case '5':
-            loadNewModel(4, 120,  20, -160, 800);
-            break;
-        case '6':
-            loadNewModel(5, 250, 180, -450, 800);
-            break;
-        case '7':
-            loadNewModel(6, 0, -100, 30, 800);
-            break;
-        case '8':
-            loadNewModel(7, 120, 200, -450, 800);
-            break;
-        case '9':
-            loadNewModel(8, -550, -100, 0, 800);
-            break;
-    }
-}
-
-function loadNewModel(index, x, y, z, cz) {
+    var posParam = mcPosLists[index];
     scene.remove(mesh);
-    loadModel(index, x, y, z);
-    camera.position.z = cz;
+    if(index === 0){
+        testModel(posParam[1], posParam[2], posParam[3]);
+    } else{
+        loadModel(posParam[0]-1, posParam[1], posParam[2], posParam[3]);
+    }
+    camera.position.z = posParam[4];
 }
 
 /************* 加载模型 *********************/
@@ -303,6 +271,7 @@ function loadModel(index, posX, posY, posZ) {
         //object.position.set(new THREE.Vector3(0, 0, 0));
         mesh = object;
         boxGroup = mesh.children;
+        //alert(boxGroup.length);
         for(var i=0; i < boxGroup.length; i++) {
             var box = boxGroup[i];
             var bMap = box.material;
@@ -314,12 +283,13 @@ function loadModel(index, posX, posY, posZ) {
 }
 
 
-function testModel() {
+function testModel(posX, posY, posZ) {
     var sphere = new THREE.SphereGeometry(20, 20, 20);
     var mtrColor = new THREE.Color();
     mtrColor.setRGB( 1.0, 1.0, 1.0);
     var sphereMaterial = new THREE.MeshPhongMaterial( {color:mtrColor, overdraw: 0.5});
     mesh = new THREE.Mesh(sphere, sphereMaterial);
+    mesh.position.set(posX, posY, posZ);
     scene.add(mesh);
 }
 /****************** 将部分全局变量清除，还原为空 ********************/
