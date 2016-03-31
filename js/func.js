@@ -38,11 +38,7 @@ function setMtrAmbient(model, texture) {
         model.material = new THREE.MeshPhongMaterial({
             map: texture,
             metal: true,
-<<<<<<< HEAD
             shading: parameter.shading
-=======
-            shading: THREE.SmoothShading
->>>>>>> origin/master
         });
     }
 }
@@ -56,16 +52,10 @@ function setMtrShininess(model, texture) {
         boxMaterial.shininess = parameter.shininess;
     } else {
         model.material = new THREE.MeshPhongMaterial({
-<<<<<<< HEAD
-            map: texture, metal: true,
-            shading: parameter.shading,
-            shininess: parameter.shininess
-=======
             map: texture,
             metal: true,
-            shading: config.shading,
-            shininess: config.shininess
->>>>>>> origin/master
+            shading: parameter.shading,
+            shininess: parameter.shininess
         });
     }
 }
@@ -81,10 +71,6 @@ function setMtrDiffuse(model, texture) {
         model.material = new THREE.MeshPhongMaterial({
             map: texture
         });
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
     }
 }
 
@@ -92,7 +78,6 @@ function setMtrSpecular(model, texture) {
     if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.specularMap = texture;
-<<<<<<< HEAD
         boxMaterial.specular = new THREE.Color(parameter.specular);
         boxMaterial.shininess = parameter.shininess;
         console.log(boxMaterial);
@@ -101,15 +86,6 @@ function setMtrSpecular(model, texture) {
             specularMap: texture,
             specular: new THREE.Color(parameter.specular),
             specular: parameter.shininess
-=======
-        boxMaterial.specular = new THREE.Color(config.specular);
-        boxMaterial.shininess = config.shininess;
-    } else {
-        model.material = new THREE.MeshPhongMaterial({
-            specularMap: texture,
-            specular: new THREE.Color(config.specular),
-            shininess: config.shininess
->>>>>>> origin/master
         });
     }
 }
@@ -181,7 +157,9 @@ function setMtrValue(value, mode) {
 
             break;
         case config.DIFFUSE:
-
+            diffuseColor.setRGB(1,1,1);
+            diffuseColor.multiplyScalar(this.value);
+            boxMaterial.color.copy(diffuseColor);
             break;
         case config.SPECULAR:
             boxMaterial.specular = new THREE.Color(1, 1, 1);
