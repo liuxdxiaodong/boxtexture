@@ -143,7 +143,7 @@ function checkBackground() {
 function changeOpt() {
     sltObjGroup.addEventListener('change', function() {
         setParamInit();
-        var index = this.value;
+        var index = Number(this.value);
         setObjLoad(index);
         addBoxOpt2Slt(index);
     });

@@ -252,21 +252,21 @@ function setBtnBg(index, imgUrl) {
 /***************** 选择要加载的模型 0测试球 1包装盒 2包装盒******************/
 function setObjLoad(index) {
     var posParam = mcPosLists[index];
-    scene.remove(mesh);
     if(index === 0){
-        testModel(posParam[1], posParam[2], posParam[3]);
+        testModel();
     } else{
-        loadModel(posParam[0]-1, posParam[1], posParam[2], posParam[3]);
+        loadModel(posParam[0]-1, posParam[1], posParam[2], posParam[3], posParam[4]);
     }
-    camera.position.z = posParam[4];
 }
 
 /************* 加载模型 *********************/
-function loadModel(index, posX, posY, posZ) {
+function loadModel(index, posX, posY, posZ, cz) {
     var loader = new THREE.OBJMTLLoader();
     loader.addEventListener('load', function (event) {
         var object = event.content;
         object.rotation.x = 0.5;
+
+        scene.remove(mesh);
         //object.position.y = -1;
         //object.position.set(new THREE.Vector3(0, 0, 0));
         mesh = object;
@@ -277,19 +277,23 @@ function loadModel(index, posX, posY, posZ) {
             var bMap = box.material;
         }
         mesh.position.set(posX, posY, posZ);
+
+        camera.position.z = cz;
         scene.add(mesh);
     });
     loader.load(objFiles[index], mtlFiles[index]);
 }
 
 
-function testModel(posX, posY, posZ) {
+function testModel() {
     var sphere = new THREE.SphereGeometry(20, 20, 20);
     var mtrColor = new THREE.Color();
-    mtrColor.setRGB( 1.0, 1.0, 1.0);
+    mtrColor.setRGB(1.0, 1.0, 0);
     var sphereMaterial = new THREE.MeshPhongMaterial( {color:mtrColor, overdraw: 0.5});
+
+    scene.remove(mesh);
     mesh = new THREE.Mesh(sphere, sphereMaterial);
-    mesh.position.set(posX, posY, posZ);
+    camera.position.z = 200;
     scene.add(mesh);
 }
 /****************** 将部分全局变量清除，还原为空 ********************/
