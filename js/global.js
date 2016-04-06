@@ -3,7 +3,7 @@
  */
 var scene, camera, renderer, container,
     plane, sceneCube, skyBox, envirCube;
-var ambientLight, spotLight;
+var ambientLight, spotLight, mtrColor;
 var effectController;
 var raycaster = new THREE.Raycaster(),
     SELECTED, INTERSECTED;

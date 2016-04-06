@@ -30,6 +30,9 @@ function init() {
     spotLight.castShadow = true;
     scene.add(spotLight);
 
+    mtrColor = new THREE.Color();
+    mtrColor.setRGB(1.0, 1.0, 1.0);
+
     var geo = new THREE.PlaneGeometry(2000, 2000, 8, 8);
     plane = new THREE.Mesh(geo, new THREE.MeshBasicMaterial( {visible: true}));
     //scene.add(plane);
@@ -37,6 +40,7 @@ function init() {
     /************camera**********************/
     camera = new THREE.PerspectiveCamera(30, container.offsetWidth / container.offsetHeight, 0.1, 10000);
     camera.position.set(parameter.CAMERAX, parameter.CAMERAY, parameter.CAMERAZ);
+
     /********************reflection map ********************/
     envirCube = THREE.ImageUtils.loadTextureCube(envirUrls);
     var envirShader = THREE.ShaderLib['cube'];

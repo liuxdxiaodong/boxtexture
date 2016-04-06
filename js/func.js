@@ -120,20 +120,18 @@ function setMtrBump(model, texture) {
 function setMtrReflect(model, texture) {
     if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
-
+        boxMaterial.color = mtrColor;
         boxMaterial.envMap = envirCube;
-        //boxMaterial.map = null;
-        //boxMaterial.bumpMap = null;
-        //boxMaterial.color = materialColor;
-        //boxMaterial.envMap = envirCube;
-        //var boxMaterial = model.material;
-        //boxMaterial.Map = texture;
-        //boxMaterial.envMap = envirCube;
-        //boxMaterial.reflectivity = config.reflectivity;
-        //model.material = new THREE
         console.log(model.material);
     } else {
-        model.material = new THREE.MeshPhongMaterial({map: texture});
+        mtrColor.setRGB(1,1,1);
+        model.material = new THREE.MeshPhongMaterial({
+            //color: mtrColor,
+            envMap: envirCube,
+            shading: parameter.shading,
+            side: THREE.DoubleSide,
+            overdraw: 0.5
+        });
     }
 }
 
@@ -162,7 +160,9 @@ function setMtrValue(value, mode) {
             boxMaterial.color.copy(diffuseColor);
             break;
         case config.SPECULAR:
-            boxMaterial.specular = new THREE.Color(1, 1, 1);
+            specularColor.setRGB(1,1,1);
+            specularColor.multiplyScalar(this.value);
+            boxMaterial.specular.copy(specularColor);
             break;
         case config.TRANSPARENT:
             boxMaterial.transparent = value;
@@ -287,9 +287,14 @@ function loadModel(index, posX, posY, posZ, cz) {
 
 function testModel() {
     var sphere = new THREE.SphereGeometry(20, 20, 20);
-    var mtrColor = new THREE.Color();
-    mtrColor.setRGB(1.0, 1.0, 0);
-    var sphereMaterial = new THREE.MeshPhongMaterial( {color:mtrColor, overdraw: 0.5});
+
+    var sphereMaterial = new THREE.MeshPhongMaterial( {
+        color: mtrColor,
+        envMap: envirCube,
+        shading: parameter.shading,
+        side: THREE.DoubleSide,
+        overdraw: 0.5
+    });
 
     scene.remove(mesh);
     mesh = new THREE.Mesh(sphere, sphereMaterial);
