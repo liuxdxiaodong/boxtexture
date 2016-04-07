@@ -8,7 +8,7 @@ if (!Detector.webgl) {
 window.onload = function() {
     initParam();
     init();
-    testModel();
+    loadModel(mcPosLists[0]);
     addEvent();
     render();
 };

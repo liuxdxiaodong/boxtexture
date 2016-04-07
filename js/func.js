@@ -115,23 +115,27 @@ function setMtrBump(model, texture) {
             bumpScale: parameter.bumpScale
         });
     }
+
+    console.log(model.material);
 }
 
 function setMtrReflect(model, texture) {
     if (chkSplitObj.checked === false) {
         var boxMaterial = model.material;
         boxMaterial.color = mtrColor;
+
         boxMaterial.envMap = envirCube;
         console.log(model.material);
     } else {
         mtrColor.setRGB(1,1,1);
-        model.material = new THREE.MeshPhongMaterial({
-            //color: mtrColor,
-            envMap: envirCube,
-            shading: parameter.shading,
-            side: THREE.DoubleSide,
-            overdraw: 0.5
-        });
+            model.material = new THREE.MeshPhongMaterial({
+                //color: mtrColor,
+                map: texture,
+                envMap: envirCube,
+                shading: parameter.shading,
+                side: THREE.DoubleSide,
+                overdraw: 0.5
+            });
     }
 }
 
@@ -160,9 +164,10 @@ function setMtrValue(value, mode) {
             boxMaterial.color.copy(diffuseColor);
             break;
         case config.SPECULAR:
-            specularColor.setRGB(1,1,1);
-            specularColor.multiplyScalar(this.value);
-            boxMaterial.specular.copy(specularColor);
+            boxMaterial.specular = new Color(1,1,1);
+            //specularColor.setRGB(1,1,1);
+            //specularColor.multiplyScalar(this.value);
+            //boxMaterial.specular.copy(specularColor);
             break;
         case config.TRANSPARENT:
             boxMaterial.transparent = value;
@@ -252,15 +257,21 @@ function setBtnBg(index, imgUrl) {
 /***************** 选择要加载的模型 0测试球 1包装盒 2包装盒******************/
 function setObjLoad(index) {
     var posParam = mcPosLists[index];
-    if(index === 0){
-        testModel();
-    } else{
-        loadModel(posParam[0]-1, posParam[1], posParam[2], posParam[3], posParam[4]);
-    }
+    loadModel(posParam);
+    //if(index === 0){
+    //    testModel();
+    //} else{
+    //    loadModel(posParam[0]-1, posParam[1], posParam[2], posParam[3], posParam[4]);
+    //}
 }
 
 /************* 加载模型 *********************/
-function loadModel(index, posX, posY, posZ, cz) {
+function loadModel(param) {
+    var index = param[0];
+    var posX = param[1];
+    var posY = param[2];
+    var posZ = param[3];
+    var cz = param[4];
     var loader = new THREE.OBJMTLLoader();
     loader.addEventListener('load', function (event) {
         var object = event.content;
@@ -284,23 +295,32 @@ function loadModel(index, posX, posY, posZ, cz) {
     loader.load(objFiles[index], mtlFiles[index]);
 }
 
-
-function testModel() {
-    var sphere = new THREE.SphereGeometry(20, 20, 20);
-
-    var sphereMaterial = new THREE.MeshPhongMaterial( {
-        color: mtrColor,
-        envMap: envirCube,
-        shading: parameter.shading,
-        side: THREE.DoubleSide,
-        overdraw: 0.5
-    });
-
-    scene.remove(mesh);
-    mesh = new THREE.Mesh(sphere, sphereMaterial);
-    camera.position.z = 200;
-    scene.add(mesh);
-}
+//
+//function testModel() {
+//    var sphere = new THREE.SphereGeometry(20, 20, 20);
+//
+//    if(SETBGSHOW == 1) {
+//        var sphereMaterial = new THREE.MeshPhongMaterial( {
+//            color: mtrColor,
+//            envMap: envirCube,
+//            shading: parameter.shading,
+//            side: THREE.DoubleSide,
+//            overdraw: 0.5
+//        });
+//    } else {
+//        var sphereMaterial = new THREE.MeshPhongMaterial({
+//            shading: parameter.shading,
+//            side: THREE.DoubleSide,
+//            overdraw: 0.5
+//        })
+//    }
+//
+//
+//    scene.remove(mesh);
+//    mesh = new THREE.Mesh(sphere, sphereMaterial);
+//    camera.position.z = 200;
+//    scene.add(mesh);
+//}
 /****************** 将部分全局变量清除，还原为空 ********************/
 function setParamInit() {
     boxIdx = null;

@@ -80,11 +80,11 @@ newmtl 11___Default
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.7200 0.7200 0.7200
 	Ke 0.0000 0.0000 0.0000
-	map_Ka CCQ02SF03-1.png
-	map_Kd CCQ02SF03-1.png
-	map_d CCQ02SF03.alpha.png
-	map_bump CCQ02SF03.alpha.png
-	bump CCQ02SF03.alpha.png
+	map_Ka CCQ02SF03_1.png
+	map_Kd CCQ02SF03_1.png
+	map_d CCQ02SF03_alpha.png
+	map_bump CCQ02SF03_alpha.png
+	bump CCQ02SF03_alpha.png
 	map_refl 73_Raytrace.tga
 
 newmtl Material__691
@@ -100,9 +100,9 @@ newmtl Material__691
 	Ke 0.0000 0.0000 0.0000
 	map_Ka HY1007.JPG
 	map_Kd HY1007.JPG
-	map_d CCQ02SF02.alpha.png
-	map_bump CCQ02SF02.alpha.png
-	bump CCQ02SF02.alpha.png
+	map_d CCQ02SF02_alpha.png
+	map_bump CCQ02SF02_alpha.png
+	bump CCQ02SF02_alpha.png
 
 newmtl 09___Default
 	Ns 0.0000

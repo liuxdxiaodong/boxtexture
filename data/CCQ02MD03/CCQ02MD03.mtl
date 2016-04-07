@@ -98,8 +98,8 @@ newmtl 11___Default
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.7200 0.7200 0.7200
 	Ke 0.0000 0.0000 0.0000
-	map_Ka CCQ02SF03-1.png
-	map_Kd CCQ02SF03-1.png
+	map_Ka CCQ02SF03_1.png
+	map_Kd CCQ02SF03_1.png
 	map_d CCQ02SF03.alpha.png
 	map_bump CCQ02SF03.alpha.png
 	bump CCQ02SF03.alpha.png

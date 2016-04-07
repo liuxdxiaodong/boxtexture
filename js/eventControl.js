@@ -19,7 +19,8 @@ function clickMbt(id, index) {
     var el = document.getElementById(id);
     el.addEventListener('click', function () {
         var box;
-        var bImg = BPATH + config.L + BLIST[index];
+        //var bImg = BPATH + config.L + BLIST[index];
+        var bImg = BPATH + config.OIMG + BLIST[index] + config.JPG;
         var bTexture = new THREE.ImageUtils.loadTexture(bImg);
 
         if (boxIdx || checkSltObj()) {
@@ -30,8 +31,8 @@ function clickMbt(id, index) {
             }
             if(materialAttr) {
                 setMtrBox(box,bTexture, materialAttr);
-                var labelImg = BPATH + config.S + BLIST[index];
-                setBtnBg(modeIndex, labelImg);
+                //var labelImg = BPATH + config.S + BLIST[index];
+                //setBtnBg(modeIndex, labelImg);
             } else {
                 alert(config.CLICKATTRALERT);
             }
@@ -193,7 +194,7 @@ function addObjOpt2Slt() {
     for (var i=0; i<optNum; i++) {
         var optObj = document.createElement('option');
         optObj.value = objIdxList[i];
-        optObj.text = objIdxList[i];
+        optObj.text = objNameList[i];
         sltObjGroup.appendChild(optObj);
     }
 }

@@ -64,15 +64,15 @@ function showMbtImg() {
         var mbtLabel = document.createElement('label');
         var alphaChk = document.createElement('input');
 
-        var mbtId = BID[index];
+        var mbtId = BLIST[index];
         mbtLink.href = 'javascript:void(0)';
         mbtLink.id = mbtId;
 
-        mbtImg.src = BPATH + config.M + BLIST[index];
+        mbtImg.src = BPATH + config.MIMG + config.M + BLIST[index] + config.JPG;
         mbtImg.style.width = '100%';
         mbtImg.style.height = '100%';
 
-        mbtLabel.innerText = BNAME[index];
+        mbtLabel.innerText = BLIST[index];
 
         alphaChk.type = 'checkbox';
         alphaChk.name = 'mbtAlpha';
