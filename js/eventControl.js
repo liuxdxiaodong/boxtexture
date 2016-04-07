@@ -9,7 +9,7 @@ function clickMet(id, index) {
     var el = document.getElementById(id);
     el.addEventListener('click', function () {
         clickIndex = index;
-        if(chkSplitObj.checked === false) {
+        if (chkSplitObj.checked === false) {
             boxIdx = clickIndex;
         }
     });
@@ -23,20 +23,18 @@ function clickMbt(id, index) {
         var bImg = BPATH + config.OIMG + BLIST[index] + config.JPG;
         var bTexture = new THREE.ImageUtils.loadTexture(bImg);
 
-        if (boxIdx || checkSltObj()) {
-            if( checkSltObj() ) {
-                box = mesh;
-            } else {
-                box = mesh.children[boxIdx];
-            }
-            if(materialAttr) {
-                setMtrBox(box,bTexture, materialAttr);
+        if (boxIdx) {
+
+            box = mesh.children[boxIdx];
+
+            if (materialAttr) {
+                setMtrBox(box, bTexture, materialAttr);
                 //var labelImg = BPATH + config.S + BLIST[index];
                 //setBtnBg(modeIndex, labelImg);
             } else {
                 alert(config.CLICKATTRALERT);
             }
-            setBorder( config.MTRBID, 0);
+            setBorder(config.MTRBID, 0);
         } else {
             alert(config.CLICKPARTALERT);
         }
@@ -48,18 +46,14 @@ function clickMvt(id, index) {
     el.addEventListener('click', function () {
         var vImg = VPATH + config.L + VLIST[index];
         var vTexture = new THREE.ImageUtils.loadTexture(vImg);
-        if (boxIdx || checkSltObj() ) {
-            if(checkSltObj()) {
-                var box = mesh;
-            } else {
-                var box = mesh.children[boxIdx];
-            }
-            if(materialAttr) {
-                setMtrBox(box,vTexture, materialAttr);
+        if (boxIdx) {
+            var box = mesh.children[boxIdx];
+            if (materialAttr) {
+                setMtrBox(box, vTexture, materialAttr);
             } else {
                 alert(config.CLICKATTRALERT);
             }
-            setBorder( config.MTRVID, 0);
+            setBorder(config.MTRVID, 0);
         } else {
             alert(config.CLICKPARTALERT);
         }
@@ -72,7 +66,7 @@ function clickMvt(id, index) {
 function clickModeBtn(id, attr, index) {
     var el = document.getElementById(id);
     el.addEventListener('click', function () {
-        if(boxIdx || checkSltObj(index) || index === 0) {
+        if (boxIdx) {
             materialAttr = attr;
             setBorder(config.MTRBID, 1);
             setModeVis(materialAttr);
@@ -86,19 +80,73 @@ function clickModeBtn(id, attr, index) {
 function clickLoadBtn(id) {
     var el = document.getElementById(id);
     el.addEventListener('click', function () {
-        window.open(config.CALLFILE) ;
+        window.open(config.CALLFILE);
     });
 }
 
-function checkSltObj () {
-    return sltObjGroup.value ==='0';
+function clickMoveDirecBtn() {
+    iptStepMove.addEventListener('change', function () {
+        parameter.MOVESTEP = this.value;
+    });
+
+    btnUp.addEventListener('click', function () {
+        if (boxIdx) {
+            var box = mesh.children[boxIdx];
+            box.position.y += parameter.MOVESTEP;
+        } else {
+            alert(config.CLICKPARTALERT);
+        }
+    });
+    btnDown.addEventListener('click', function () {
+        if (boxIdx) {
+            var box = mesh.children[boxIdx];
+            box.position.y -= parameter.MOVESTEP;
+        } else {
+            alert(config.CLICKPARTALERT);
+        }
+    });
+    btnLeft.addEventListener('click', function () {
+        if (boxIdx) {
+            var box = mesh.children[boxIdx];
+            box.position.x -= parameter.MOVESTEP;
+        } else {
+            alert(config.CLICKPARTALERT);
+        }
+    });
+    btnRight.addEventListener('click', function () {
+        if (boxIdx) {
+            var box = mesh.children[boxIdx];
+            box.position.x += parameter.MOVESTEP;
+        } else {
+            alert(config.CLICKPARTALERT);
+        }
+    });
+    btnFront.addEventListener('click', function () {
+        if (boxIdx) {
+            var box = mesh.children[boxIdx];
+            box.position.z += parameter.MOVESTEP;
+        } else {
+            alert(config.CLICKPARTALERT);
+        }
+    });
+    btnBack.addEventListener('click', function () {
+        if (boxIdx) {
+            var box = mesh.children[boxIdx];
+            box.position.z -= parameter.MOVESTEP;
+        } else {
+            alert(config.CLICKPARTALERT);
+        }
+    });
+
+
 }
 
-function changeIptValue (id, attr) {
+
+function changeIptValue(id, attr) {
     var el = document.getElementById(id);
-    el.addEventListener('change', function() {
+    el.addEventListener('change', function () {
         var value = this.value;
-        setMtrValue( value, attr);
+        setMtrValue(value, attr);
     });
 }
 
@@ -128,8 +176,8 @@ function checkSplit() {
 }
 
 function checkBackground() {
-    chkBg.addEventListener('change', function() {
-        if(this.checked === true) {
+    chkBg.addEventListener('change', function () {
+        if (this.checked === true) {
             sceneCube.add(skyBox);
             sceneCube.add(scene);
             SETBGSHOW = 1;
@@ -142,22 +190,22 @@ function checkBackground() {
 }
 
 function changeOpt() {
-    sltObjGroup.addEventListener('change', function() {
+    sltObjGroup.addEventListener('change', function () {
         setParamInit();
         var index = Number(this.value);
         setObjLoad(index);
         addBoxOpt2Slt(index);
     });
 
-    sltBoxObj.addEventListener('change', function() {
+    sltBoxObj.addEventListener('change', function () {
         selectIndex = this.value;
-        if(chkSplitObj.checked === true) {
+        if (chkSplitObj.checked === true) {
             boxIdx = selectIndex;
             materialAttr = null;
         }
     });
 
-    sltMtrGroup.addEventListener('change', function() {
+    sltMtrGroup.addEventListener('change', function () {
         var index = this.value;
         setModeGroup(index);
     });
@@ -173,7 +221,7 @@ function addBoxOpt2Slt(index) {
         optObj.text = i;
         sltBoxObj.appendChild(optObj);
     }
-    if(chkSplitObj.checked) {
+    if (chkSplitObj.checked) {
         sltBoxObj.disabled = false;
     } else {
         sltBoxObj.disabled = true;
@@ -181,7 +229,7 @@ function addBoxOpt2Slt(index) {
 }
 
 function addMtr2Group() {
-    for(var i= 0; i<mtrModeGroup.length; i++) {
+    for (var i = 0; i < mtrModeGroup.length; i++) {
         var mtrObj = document.createElement('option');
         mtrObj.value = i;
         mtrObj.text = mtrModeGroup[i];
@@ -191,7 +239,7 @@ function addMtr2Group() {
 
 function addObjOpt2Slt() {
     var optNum = objIdxList.length;
-    for (var i=0; i<optNum; i++) {
+    for (var i = 0; i < optNum; i++) {
         var optObj = document.createElement('option');
         optObj.value = objIdxList[i];
         optObj.text = objNameList[i];
@@ -201,7 +249,7 @@ function addObjOpt2Slt() {
 
 function checkMode(id, index) {
     var el = document.getElementById(id);
-    el.addEventListener('change', function() {
+    el.addEventListener('change', function () {
         var input = document.getElementById(MODEINPUTID[index]);
         var btn = document.getElementById(MODEBTNID[index]);
         input.disabled = this.checked === true ? false : true;
@@ -211,16 +259,16 @@ function checkMode(id, index) {
 
 /************** 控制光源位置 **************/
 function changeLightPos() {
-    iptLightX.addEventListener('change', function() {
+    iptLightX.addEventListener('change', function () {
         scene.__lights[1].position.x = this.value;
     });
-    iptLightY.addEventListener('change', function() {
+    iptLightY.addEventListener('change', function () {
         scene.__lights[1].position.y = this.value;
     });
-    iptLightZ.addEventListener('change', function() {
+    iptLightZ.addEventListener('change', function () {
         scene.__lights[1].position.z = this.value;
     });
-    iptLightIts.addEventListener('change', function() {
+    iptLightIts.addEventListener('change', function () {
         scene.__lights[1].intensity = this.value;
     })
 }

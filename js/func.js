@@ -66,7 +66,6 @@ function setMtrDiffuse(model, texture) {
         boxMaterial.map = texture;
         boxMaterial.metal = true;
         boxMaterial.shading = parameter.shading;
-
     } else {
         model.material = new THREE.MeshPhongMaterial({
             map: texture

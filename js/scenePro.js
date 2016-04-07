@@ -92,6 +92,7 @@ function initParam() {
     iptLightY.value = parameter.LIGHTPOSY;
     iptLightZ.value = parameter.LIGHTPOSZ;
     iptLightIts.value = parameter.LIGHTITS;
+    iptStepMove.value = parameter.MOVESTEP;
 }
 /********************* 添加鼠标事件及复选框事件 *************************/
 function addEvent() {
@@ -99,6 +100,7 @@ function addEvent() {
     clickImgEvent();
     clickBtnEvent();
     clickLoadBtn(config.BTNLOADID);
+    clickMoveDirecBtn();
 
     addObjOpt2Slt();
     addMtr2Group();

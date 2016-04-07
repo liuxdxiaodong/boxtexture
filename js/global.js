@@ -40,7 +40,7 @@ var parameter = {
     CAMERAX: 0,
     CAMERAY: 0,
     CAMERAZ: 200,
-
+    MOVESTEP: 1,
 
     ambientColor: 0xaaaaaa,
     spotLightColor: 0xffffff,
@@ -59,10 +59,17 @@ var config = {
     MTREID: 'mtrExistId',
     MTRBID: 'mtrBasicId',
     MTRVID: 'mtrVariaId',
+
     BTNLOADID: 'upLoadBtn',
     BTNOKID: 'okBtn',
     BTNSUBMITID: 'submitBtn',
     BTNCANCELID: 'cancelBtn',
+    BTNUPID: 'upBtn',
+    BTNDOWNID: 'downBtn',
+    BTNLEFTID: 'leftBtn',
+    BTNRIGHTID: 'rightBtn',
+    BTNFRONTID: 'frontBtn',
+    BTNBACKID: 'backBtn',
 
     RDOAUTOFORMID: 'autoForm',
     RDOMANFORMID: 'manForm',
@@ -77,6 +84,7 @@ var config = {
     IPTLIGHTY: 'lightY',
     IPTLIGHTZ: 'lightZ',
     IPTLIGHTITS: 'lightIntense',
+    IPTSTEPMOVE: 'stepMove',
 
     AMBIENT: 'ambient',
     SHININESS: 'shininess',
@@ -103,16 +111,22 @@ var config = {
 
 };
 
-var sltBoxObj = document.getElementById(config.SLTBOXINDEX);
+var sltBoxObj   = document.getElementById(config.SLTBOXINDEX);
 var sltMtrGroup = document.getElementById(config.SLTMTRGROUP);
 var sltObjGroup = document.getElementById(config.SLTOBJGROUP);
 var chkSplitObj = document.getElementById(config.CHKSPLITFORMID);
-var chkBg = document.getElementById(config.CHKBACKGROUND);
-
-var iptLightX = document.getElementById(config.IPTLIGHTX);
-var iptLightY = document.getElementById(config.IPTLIGHTY);
-var iptLightZ = document.getElementById(config.IPTLIGHTZ);
-var iptLightIts = document.getElementById(config.IPTLIGHTITS);
+var chkBg        = document.getElementById(config.CHKBACKGROUND);
+var btnUp        = document.getElementById(config.BTNUPID);
+var btnDown      = document.getElementById(config.BTNDOWNID);
+var btnLeft      = document.getElementById(config.BTNLEFTID);
+var btnRight     = document.getElementById(config.BTNRIGHTID);
+var btnFront     = document.getElementById(config.BTNFRONTID);
+var btnBack      = document.getElementById(config.BTNBACKID);
+var iptLightX    = document.getElementById(config.IPTLIGHTX);
+var iptLightY    = document.getElementById(config.IPTLIGHTY);
+var iptLightZ    = document.getElementById(config.IPTLIGHTZ);
+var iptLightIts  = document.getElementById(config.IPTLIGHTITS);
+var iptStepMove  = document.getElementById(config.IPTSTEPMOVE);
 
 var objFiles = [
     'data/model_tea/tea2.obj',
@@ -266,6 +280,7 @@ var EID = [
 ];
 
 var BLIST = [
+    'HY1000',
     'HY1001',
     'HY1002',
     'HY1003',

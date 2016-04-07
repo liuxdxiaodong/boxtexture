@@ -36,11 +36,20 @@
                     <input type="checkbox" id="chkBg" /><label for="chkBg">背景</label>
                 </div>
                 <div style="display: inline-block">
-                    <label>光源位置：</label>
+                    <label>光：</label>
                     <label for="lightX">x:</label><input type="number" class="sltNum" id="lightX" />
                     <label for="lightY">y:</label><input type="number" class="sltNum" id="lightY" />
                     <label for="lightZ">z:</label><input type="number" class="sltNum" id="lightZ" />
                     <label for="lightIntense">亮度：</label><input type="number" max="1" min="0" step="0.02" class="sltNum" id="lightIntense" />
+                </div>
+                <div>
+                    <button class="mepBtn" type="button" id="upBtn">上</button>
+                    <button class="mepBtn" type="button" id="downBtn">下</button>
+                    <button class="mepBtn" type="button" id="leftBtn">左</button>
+                    <button class="mepBtn" type="button" id="rightBtn">右</button>
+                    <button class="mepBtn" type="button" id="frontBtn">前</button>
+                    <button class="mepBtn" type="button" id="backBtn">后</button>
+                    <input  class="sltNum" type="number" min="0" step="0.02" id="stepMove" />
                 </div>
             </div>
         </div>
