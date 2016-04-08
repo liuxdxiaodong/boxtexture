@@ -11,6 +11,7 @@ function clickMet(id, index) {
         clickIndex = index;
         if (chkSplitObj.checked === false) {
             boxIdx = clickIndex;
+            setBoxHightlight(boxIdx);
         }
     });
 }
@@ -28,6 +29,7 @@ function clickMbt(id, index) {
             box = mesh.children[boxIdx];
 
             if (materialAttr) {
+                clearBoxHightlight();
                 setMtrBox(box, bTexture, materialAttr);
                 //var labelImg = BPATH + config.S + BLIST[index];
                 //setBtnBg(modeIndex, labelImg);
@@ -44,11 +46,12 @@ function clickMbt(id, index) {
 function clickMvt(id, index) {
     var el = document.getElementById(id);
     el.addEventListener('click', function () {
-        var vImg = VPATH + config.L + VLIST[index];
+        var vImg = VPATH + VLIST[index] + config.ALPHA + config.PNG;
         var vTexture = new THREE.ImageUtils.loadTexture(vImg);
         if (boxIdx) {
             var box = mesh.children[boxIdx];
             if (materialAttr) {
+                clearBoxHightlight();
                 setMtrBox(box, vTexture, materialAttr);
             } else {
                 alert(config.CLICKATTRALERT);
@@ -202,6 +205,7 @@ function changeOpt() {
         if (chkSplitObj.checked === true) {
             boxIdx = selectIndex;
             materialAttr = null;
+            setBoxHightlight(boxIdx);
         }
     });
 

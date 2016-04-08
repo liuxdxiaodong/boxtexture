@@ -12,7 +12,8 @@ var mouse = new THREE.Vector2(),
 var mesh = null,
     control,
     boxGroup,
-    boxIdx, clickIndex, selectIndex, modeIndex,
+    boxIdx, clickIndex, selectIndex, modeIndex;
+var currentBoxIdx, currentHex,
     materialAttr;
 
 var AUTOMAN = 0;
@@ -107,7 +108,9 @@ var config = {
     S: 's',
     MIMG: 'MIMG/',
     OIMG: 'OIMG/',
-    JPG: '.jpg'
+    JPG: '.jpg',
+    PNG: '.png',
+    ALPHA: '_alpha'
 
 };
 
@@ -432,37 +435,21 @@ var BID = BLIST;
 //];
 
 var VLIST = [
-    'mvt1.bmp',
-    'mvt2.jpg',
-    'mvt3.jpg',
-    'mvt4.jpg',
-    'mvt5.jpg',
-    'mvt6.png',
-    'mvt7.png',
-    'mvt8.png'
+    'logo_01',
+    'logo_02',
+    'logo_03',
+    'logo_04',
+    'logo_05',
+    'logo_06',
+    'logo_07',
+    'text_01',
+    'text_02',
+    'text_03',
+    'text_04'
 ];
 
-var VNAME = [
-    '个性1',
-    '个性2',
-    '个性3',
-    '个性4',
-    '个性5',
-    '个性6',
-    '个性7',
-    '个性8'
-];
-
-var VID = [
-    'mvt1',
-    'mvt2',
-    'mvt3',
-    'mvt4',
-    'mvt5',
-    'mvt6',
-    'mvt7',
-    'mvt8'
-];
+var VNAME = VLIST;
+var VID = VLIST;
 
 
 var iDiffuse =        [1, 1, 1, 1, 1, 1,1];

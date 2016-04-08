@@ -112,9 +112,9 @@ function showMvtImg() {
         mvtLink.href = 'javascript: void(0)';
         mvtLink.id = VID[index];
 
-        mvtImg.src = VPATH + config.M + VLIST[index];
+        mvtImg.src = VPATH + config.M + VLIST[index] + config.PNG;
         mvtImg.style.width = '100%';
-        mvtImg.style.height = '100%';
+        //mvtImg.style.height = '100%';
 
         mvtLabel.for = mvtLink.id;
         mvtLabel.innerText = VNAME[index];
@@ -125,6 +125,7 @@ function showMvtImg() {
         totalDiv.style.display = 'inline-block';
         imageDiv.style.width = '100%';
         imageDiv.style.height = '86%';
+        imageDiv.style.alignContent = 'center';
         labelDiv.style.width = '100%';
         labelDiv.style.height = '14%';
         labelDiv.style.textAlign = 'center';

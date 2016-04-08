@@ -93,6 +93,7 @@ function initParam() {
     iptLightZ.value = parameter.LIGHTPOSZ;
     iptLightIts.value = parameter.LIGHTITS;
     iptStepMove.value = parameter.MOVESTEP;
+    currentBoxIdx = 0;
 }
 /********************* 添加鼠标事件及复选框事件 *************************/
 function addEvent() {

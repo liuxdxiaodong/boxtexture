@@ -35,11 +35,15 @@ function setMtrAmbient(model, texture) {
         boxMaterial.metal = true;
         boxMaterial.shading = parameter.shading;
     } else {
-        model.material = new THREE.MeshPhongMaterial({
-            map: texture,
-            metal: true,
-            shading: parameter.shading
-        });
+        //model.material = new THREE.MeshPhongMaterial({
+        //    map: texture,
+        //    metal: true,
+        //    shading: parameter.shading
+        //});
+        var boxMaterial = model.material;
+        boxMaterial.map = texture;
+        boxMaterial.metal = true;
+        boxMaterial.shading = parameter.shading;
     }
 }
 
@@ -51,12 +55,17 @@ function setMtrShininess(model, texture) {
         boxMaterial.shading = parameter.shading;
         boxMaterial.shininess = parameter.shininess;
     } else {
-        model.material = new THREE.MeshPhongMaterial({
-            map: texture,
-            metal: true,
-            shading: parameter.shading,
-            shininess: parameter.shininess
-        });
+        //model.material = new THREE.MeshPhongMaterial({
+        //    map: texture,
+        //    metal: true,
+        //    shading: parameter.shading,
+        //    shininess: parameter.shininess
+        //});
+        var boxMaterial = model.material;
+        boxMaterial.map = texture;
+        boxMaterial.metal = true;
+        boxMaterial.shading = parameter.shading;
+        boxMaterial.shininess = parameter.shininess;
     }
 }
 
@@ -67,9 +76,13 @@ function setMtrDiffuse(model, texture) {
         boxMaterial.metal = true;
         boxMaterial.shading = parameter.shading;
     } else {
-        model.material = new THREE.MeshPhongMaterial({
-            map: texture
-        });
+        //model.material = new THREE.MeshPhongMaterial({
+        //    map: texture
+        //});
+        var boxMaterial = model.material;
+        boxMaterial.map = texture;
+        boxMaterial.metal = true;
+        boxMaterial.shading = parameter.shading;
     }
 }
 
@@ -79,13 +92,16 @@ function setMtrSpecular(model, texture) {
         boxMaterial.specularMap = texture;
         boxMaterial.specular = new THREE.Color(parameter.specular);
         boxMaterial.shininess = parameter.shininess;
-        console.log(boxMaterial);
     } else {
-        model.material = new THREE.MeshPhongMaterial({
-            specularMap: texture,
-            specular: new THREE.Color(parameter.specular),
-            specular: parameter.shininess
-        });
+        //model.material = new THREE.MeshPhongMaterial({
+        //    specularMap: texture,
+        //    specular: new THREE.Color(parameter.specular),
+        //    specular: parameter.shininess
+        //});
+        var boxMaterial = model.material;
+        boxMaterial.map = texture;
+        boxMaterial.metal = true;
+        boxMaterial.shading = parameter.shading;
     }
 }
 
@@ -95,10 +111,13 @@ function setMtrTransparent(model, texture) {
         boxMaterial.map = texture;
         boxMaterial.transparent = parameter.transparent;
     } else {
-        model.material = new THREE.MeshPhongMaterial({
-            map: texture,
-            transparent: parameter.transparent
-        });
+        //model.material = new THREE.MeshPhongMaterial({
+        //    map: texture,
+        //    transparent: parameter.transparent
+        //});
+        var boxMaterial = model.material;
+        boxMaterial.map = texture;
+        boxMaterial.transparent = parameter.transparent;
     }
 }
 
@@ -109,10 +128,14 @@ function setMtrBump(model, texture) {
         boxMaterial.bumpMap = texture;
         boxMaterial.bumpScale = parameter.bumpScale;
     } else {
-        model.material = new THREE.MeshPhongMaterial({
-            bumpMap: texture,
-            bumpScale: parameter.bumpScale
-        });
+        //model.material = new THREE.MeshPhongMaterial({
+        //    bumpMap: texture,
+        //    bumpScale: parameter.bumpScale
+        //});
+        var boxMaterial = model.material;
+        //boxMaterial.map = texture;
+        boxMaterial.bumpMap = texture;
+        boxMaterial.bumpScale = parameter.bumpScale;
     }
 
     console.log(model.material);
@@ -136,6 +159,21 @@ function setMtrReflect(model, texture) {
                 overdraw: 0.5
             });
     }
+}
+
+function setBoxHightlight(index) {
+    clearBoxHightlight();
+    var interSeceted = mesh.children[index];
+
+    currentHex = interSeceted.material.emissive.getHex();
+    currentBoxIdx = index;
+
+    interSeceted.material.emissive.setHex(0xffffff);
+}
+
+function clearBoxHightlight() {
+    var curSeceted = mesh.children[currentBoxIdx];
+    curSeceted.material.emissive.setHex(currentHex);
 }
 
 /************* 设置材质贴图模式的尺度 value *****************/
@@ -281,6 +319,8 @@ function loadModel(param) {
         //object.position.set(new THREE.Vector3(0, 0, 0));
         mesh = object;
         boxGroup = mesh.children;
+        currentHex = mesh.children[0].material.emissive.getHex();
+
         //alert(boxGroup.length);
         for(var i=0; i < boxGroup.length; i++) {
             var box = boxGroup[i];

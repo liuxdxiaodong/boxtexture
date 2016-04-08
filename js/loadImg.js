@@ -17,20 +17,22 @@ var ctxB = outImgCanvas.getContext('2d');
 
 var imgWidth, imgHeight, imgSrc;
 var canvasHeight = 300;
+//var canvasWidth = 366;
 loadImgCanvas.height = canvasHeight;
 outImgCanvas.height = loadImgCanvas.height;
+//loadImgCanvas.width = canvasWidth;
 
 var startX = 0,
     startY = 0,
     offsetX = 0,
     offsetY = 0;
-var locateX = 30,
-    locateY = 30;
+var locateX = 10,
+    locateY = 150;
 var textValue,
     fontSize,
     fontType;
 var minSize = 10,
-    maxSize = 30,
+    maxSize = 500,
     defaultSize = 20;
 var ISVERTICAL = false;
 var fontList = [
