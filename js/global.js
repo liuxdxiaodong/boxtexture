@@ -404,35 +404,6 @@ var BLIST = [
     ];
 
 var BID = BLIST;
-    //var BLIST = [
-//    'mbt1.jpg',
-//    'mbt2.jpg',
-//    'mbt3.jpg',
-//    'mbt4.jpg',
-//    'mbt5.jpg',
-//    'mbt6.jpg',
-//    'mbt7.jpg'
-//];
-//
-//var BNAME = [
-//    '材质1',
-//    '材质2',
-//    '材质3',
-//    '材质4',
-//    '材质5',
-//    '材质6',
-//    '材质7'
-//];
-//
-//var BID = [
-//    'mbt1',
-//    'mbt2',
-//    'mbt3',
-//    'mbt4',
-//    'mbt5',
-//    'mbt6',
-//    'mbt7'
-//];
 
 var VLIST = [
     'logo_01',
