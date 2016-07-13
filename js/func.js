@@ -149,15 +149,15 @@ function setMtrReflect(model, texture) {
         boxMaterial.envMap = envirCube;
         console.log(model.material);
     } else {
-        mtrColor.setRGB(1,1,1);
-            model.material = new THREE.MeshPhongMaterial({
-                //color: mtrColor,
-                map: texture,
-                envMap: envirCube,
-                shading: parameter.shading,
-                side: THREE.DoubleSide,
-                overdraw: 0.5
-            });
+        mtrColor.setRGB(1, 1, 1);
+        model.material = new THREE.MeshPhongMaterial({
+            //color: mtrColor,
+            map: texture,
+            envMap: envirCube,
+            shading: parameter.shading,
+            side: THREE.DoubleSide,
+            overdraw: 0.5
+        });
     }
 }
 
@@ -168,12 +168,19 @@ function setBoxHightlight(index) {
     currentHex = interSeceted.material.emissive.getHex();
     currentBoxIdx = index;
 
-    interSeceted.material.emissive.setHex(0xffffff);
+     //interSeceted.material = new THREE.MeshPhongMaterial({
+     //        emissive: 0xffffff
+     //})
+    mesh.children[index].material.emissive.setHex(0xffffff);
 }
 
 function clearBoxHightlight() {
+    console.log(currentBoxIdx)
     var curSeceted = mesh.children[currentBoxIdx];
     curSeceted.material.emissive.setHex(currentHex);
+    // curSeceted.material = new THREE.MeshPhongMaterial({
+    //     emissive: currentHex
+    // })
 }
 
 /************* 设置材质贴图模式的尺度 value *****************/
@@ -196,12 +203,12 @@ function setMtrValue(value, mode) {
 
             break;
         case config.DIFFUSE:
-            diffuseColor.setRGB(1,1,1);
+            diffuseColor.setRGB(1, 1, 1);
             diffuseColor.multiplyScalar(this.value);
             boxMaterial.color.copy(diffuseColor);
             break;
         case config.SPECULAR:
-            boxMaterial.specular = new Color(1,1,1);
+            boxMaterial.specular = new Color(1, 1, 1);
             //specularColor.setRGB(1,1,1);
             //specularColor.multiplyScalar(this.value);
             //boxMaterial.specular.copy(specularColor);
@@ -310,7 +317,7 @@ function loadModel(param) {
     var posZ = param[3];
     var cz = param[4];
     var loader = new THREE.OBJMTLLoader();
-    loader.addEventListener('load', function (event) {
+    loader.addEventListener('load', function(event) {
         var object = event.content;
         object.rotation.x = 0.5;
 
@@ -321,8 +328,9 @@ function loadModel(param) {
         boxGroup = mesh.children;
         currentHex = mesh.children[0].material.emissive.getHex();
 
-        //alert(boxGroup.length);
-        for(var i=0; i < boxGroup.length; i++) {
+        var boxNum = boxGroup.length;
+        addBoxOpt2Slt(boxNum)
+        for (var i = 0; i < boxNum; i++) {
             var box = boxGroup[i];
             var bMap = box.material;
         }
@@ -364,9 +372,10 @@ function loadModel(param) {
 function setParamInit() {
     boxIdx = null;
     materialAttr = null;
+    currentBoxIdx = 0;
 }
 
 function setCameraPosition(x, y, z) {
     //camera.position.set(x, y, z);
-    camera.lookAt(new THREE.Vector3(0,0,0));
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
 }

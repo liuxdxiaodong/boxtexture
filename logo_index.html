@@ -1,0 +1,47 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <title>印你说标签定制</title>
+    <link type="text/css" rel="stylesheet" href="css/logo_style.css"  />
+</head>
+<body>
+    <div id="xTitle" class="dTitle">
+        <h1>印你说标签定制</h1>
+    </div>
+    <div id="xContent" class="dContent">
+        <div id="xImage" class="dImage"></div>
+        <div id="xEdit" class="dEdit">
+            <div id="xType" class="dType">
+                <div class="dDiv">
+                    <select id="xFontType" class="dSlt"></select>
+                    <select id="xFontSize" class="dSlt"></select>
+                    <input type="button" id="xFontBold" value="B" class="dBtn" />
+                    <input type="button" id="xFontItalic" value="I" class="dBtn" />
+                </div>
+                <div class="dDiv">
+                    <label for="xFontDrt">竖排：</label>
+                    <input type="checkbox" id="xFontDrt" />
+                    <label for="xDistNum">间距：</label>
+                    <input type="number" id="xDistNum" class="dIpt" value="1.5" step="0.1" min="1" max = "4" />
+                </div>
+                <div class="dDiv">
+                    <label for="xLeft">X：</label>
+                    <input type="text" id="xLeft" class="dIpt"/>
+                    <label for="xTop">Y：</label>
+                    <input type="text" id="xTop" class="dIpt"/>
+                    <label for="xFontColor">字体颜色：</label>
+                    <input type="text" id="xFontColor" class="dIpt"/>
+                    <!--<input type="color" id="xFontColor" />-->
+                </div>
+                <div class="dDiv">
+                    <input type="button" id="xLogo" value="logo" />
+                    <input type="button" id="xSave" value="清空"/>
+                </div>
+            </div>
+            <div id="xText" class="dText"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/edit.js"></script>
+</body>
+</html>

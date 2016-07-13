@@ -5,15 +5,29 @@
 
 /*************** 添加点击图片事件，修改材质***************/
 
-function clickMet(id, index) {
+function clickMet(box, index, label) {
+    var id = box + index;
     var el = document.getElementById(id);
-    el.addEventListener('click', function () {
-        clickIndex = index;
-        if (chkSplitObj.checked === false) {
-            boxIdx = clickIndex;
-            setBoxHightlight(boxIdx);
-        }
-    });
+    switch(label) {
+        case 0:
+            el.addEventListener('click', function() {
+                boxMode = index;
+                var child = mesh.children[boxIdx];
+                //var tempPos = child.position;
+                mesh.remove(child);
+            });
+            break;
+        case 1:
+            el.addEventListener('click', function() {
+                changeChildBox(index, boxMode, box);
+            });
+            break;
+        case 2:
+            el.addEventListener('click', function() {
+                changeChildBox(index, boxMode, box )
+            });
+            break;
+    }
 }
 
 function clickMbt(id, index) {
@@ -95,7 +109,8 @@ function clickMoveDirecBtn() {
     btnUp.addEventListener('click', function () {
         if (boxIdx) {
             var box = mesh.children[boxIdx];
-            box.position.y += parameter.MOVESTEP;
+            //box.position.y += parameter.MOVESTEP;
+            changeChildBox();
         } else {
             alert(config.CLICKPARTALERT);
         }
@@ -140,8 +155,57 @@ function clickMoveDirecBtn() {
             alert(config.CLICKPARTALERT);
         }
     });
+}
 
+function changeChildBox(idx, mode, box){
+    //var boxNum = 9;
+    //for(var i = 0; i<=boxNum; i++){
+    //    var child = mesh.children[i];
+    //    mesh.remove(child);
+    //}
+    //var child = mesh.children[boxIdx];
+    //var tempPos = child.position;
+    //mesh.remove(child);
+    var loader = new THREE.OBJMTLLoader();
+    loader.addEventListener('load', function(event){
 
+        switch(mode){
+            case 0:
+                var obj = event.content;
+                mesh.add(obj);
+                break;
+            case 1:
+                var obj1 = event.content;
+                var obj2 = obj1.clone();
+                var obj3 = obj1.clone();
+                obj1.position.set(0, 0, 0)
+                obj2.position.set(-80, 0, 80);
+                obj3.position.set(80, 0, 80);
+                mesh.add(obj1);
+                mesh.add(obj2);
+                mesh.add(obj3);
+                break;
+            case 2:
+                var obj1 = event.content;
+                var obj2 = obj1.clone();
+                obj1.position.set(0, 0, 0);
+                obj2.position.set(-150, 0, 0);
+                mesh.add(obj1);
+                mesh.add(obj2);
+                break;
+        }
+        //mesh.add(obj);
+        //var boxNum = mesh.children.length;
+        //addBoxOpt2Slt(boxNum)
+    })
+    switch(box) {
+        case config.CYLINDER:
+            loader.load(cldFiles[idx][0], cldFiles[idx][1]);
+            break;
+        case config.SQUARE:
+            loader.load(sqrFiles[idx][0], sqrFiles[idx][1]);
+            break;
+    }
 }
 
 
@@ -197,7 +261,7 @@ function changeOpt() {
         setParamInit();
         var index = Number(this.value);
         setObjLoad(index);
-        addBoxOpt2Slt(index);
+        //addBoxOpt2Slt(index);
     });
 
     sltBoxObj.addEventListener('change', function () {
@@ -216,9 +280,9 @@ function changeOpt() {
 
 }
 
-function addBoxOpt2Slt(index) {
+function addBoxOpt2Slt(optNum) {
     sltBoxObj.options.length = 0;
-    var optNum = objBoxNum[index];
+    //var optNum = objBoxNum[index];
     for (var i = 0; i < optNum; i++) {
         var optObj = document.createElement('option');
         optObj.value = i;
@@ -242,10 +306,10 @@ function addMtr2Group() {
 }
 
 function addObjOpt2Slt() {
-    var optNum = objIdxList.length;
+    var optNum = objNameList.length;
     for (var i = 0; i < optNum; i++) {
         var optObj = document.createElement('option');
-        optObj.value = objIdxList[i];
+        optObj.value = i;
         optObj.text = objNameList[i];
         sltObjGroup.appendChild(optObj);
     }

@@ -16,6 +16,8 @@ var mesh = null,
 var currentBoxIdx, currentHex,
     materialAttr;
 
+var boxMode;
+
 var AUTOMAN = 0;
 var SETBGSHOW = 0;
 
@@ -98,11 +100,14 @@ var config = {
     BORDERCOLOR: '#0f0',
     DEFAULTIMG: 'images/skybox/nx.jpg',
 
-    CALLFILE: 'load.html',
+    CALLFILE: 'logo_index.html',
 
     CLICKPARTALERT: '请选择需要修改材质的部分！',
     CLICKATTRALERT: '请选择帖图模式！',
 
+    BOX: 'box',
+    CYLINDER: 'cylinder',
+    SQUARE: 'square',
     L: 'l',
     M: 'M',
     S: 's',
@@ -111,7 +116,6 @@ var config = {
     JPG: '.jpg',
     PNG: '.png',
     ALPHA: '_alpha'
-
 };
 
 var sltBoxObj   = document.getElementById(config.SLTBOXINDEX);
@@ -141,7 +145,14 @@ var objFiles = [
     'data/CCQ02MD05/CCQ02MD05.obj',
     'data/CCQ02MD06/CCQ02MD06.obj',
     'data/CCQ02MD07/CCQ02MD07.obj',
-    'data/model_pd/PDMODEL.obj'
+    'data/model_pd/PDMODEL.obj',
+    'data/model_chanfeng/canfeng.obj',
+    'data/model_chanfeng/chanfeng1.obj',
+    'data/model_chanfeng/cfnh.obj',
+    'data/model_chanfeng/cft.obj',
+    'data/model_chanfeng/santieguan.obj',
+    'data/model_chanfeng/tg.obj',
+    'data/model_chanfeng/tgt.obj'
 ];
 
 var mtlFiles = [
@@ -154,21 +165,34 @@ var mtlFiles = [
     'data/CCQ02MD05/CCQ02MD05.mtl',
     'data/CCQ02MD06/CCQ02MD06.mtl',
     'data/CCQ02MD07/CCQ02MD07.mtl',
-    'data/model_pd/PDMODEL.mtl'
+    'data/model_pd/PDMODEL.mtl',
+    'data/model_chanfeng/canfeng.mtl',
+    'data/model_chanfeng/chanfeng1.mtl',
+    'data/model_chanfeng/cfnh.mtl',
+    'data/model_chanfeng/cft.mtl',
+    'data/model_chanfeng/santieguan.mtl',
+    'data/model_chanfeng/tg.mtl',
+    'data/model_chanfeng/tgt.mtl'
 ];
 
-var objIdxList = [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
-];
+var cldFiles = [
+    [ 'data/model_chanfeng/tg.obj',  'data/model_chanfeng/tg.mtl'],
+    ['data/model_box/a.obj','data/model_box/a.mtl']
+]
+var sqrFiles = [
+    ['data/model_chanfeng/cfnh.obj', 'data/model_chanfeng/cfnh.mtl']
+]
+//var boxObjFiles = [
+//    'data/model_box/a.obj',
+//    'data/model_chanfeng/cfnh.obj',
+//    'data/model_chanfeng/tg.obj'
+//];
+//
+//var boxMtlFiles = [
+//    'data/model_box/a.mtl',
+//    'data/model_chanfeng/cfnh.mtl',
+//    'data/model_chanfeng/tg.mtl'
+//];
 
 var objNameList = [
     'teaBox',
@@ -180,19 +204,14 @@ var objNameList = [
     'MD05',
     'MD06',
     'MD07',
-    'teaBag'
-];
-var objBoxNum = [
-    31,
-    8,
-    6,
-    16,
-    10,
-    8,
-    39,
-    18,
-    43,
-    4
+    'teaBag',
+    'canfeng',
+    'chanfeng1',
+    'cfnh',
+    'cft',
+    'santieguan',
+    'tg',
+    'tgt'
 ];
 
 var mcPosLists = [
@@ -205,7 +224,14 @@ var mcPosLists = [
     [6, 0, -100, 30, 800],
     [7, 120, 200, -450, 800],
     [8, -550, -100, 0, 800],
-    [9, 0, -30, 0, 500]
+    [9, 0, -30, 0, 500],
+    [10, 0, 0, 0, 700],
+    [11, 0, 0, 0, 700],
+    [12, 0, 0, 0, 700],
+    [13, 0, 0, 0, 700],
+    [14, 0, 0, 0, 700],
+    [15, 0, 0, 0, 700],
+    [16, 0, 0, 0, 700]
 ];
 
 var mtrModeGroup = [
@@ -264,6 +290,19 @@ var ELIST = [
     'met3.png',
     'met4.png',
     'met5.png'
+];
+
+var boxList = [
+    'met5.png',
+    'tuo1.png',
+    'tuo2.png'
+];
+var cldList = [
+    'cld1.png',
+    'test_box.png'
+];
+var sqrList = [
+    'sqr1.png'
 ];
 
 var ENAME = [

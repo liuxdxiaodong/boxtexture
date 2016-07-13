@@ -1,10 +1,13 @@
-/**
+ /**
  * Created by CGGI_006 on 2016/2/26.
  */
 
 showMbtImg();
 showMvtImg();
-showMetImg();
+showBoxImg('objBoxId', boxList, config.BOX);
+showBoxImg('objCylinderId', cldList, config.CYLINDER);
+showBoxImg('objSquareId', sqrList,config.SQUARE);
+// showMetImg();
 
 function showMetImg() {
     var metContainer = document.getElementById(config.MTREID);
@@ -50,6 +53,33 @@ function showMetImg() {
         //metContainer.appendChild(metLink);
     }
 }
+
+function showBoxImg(boxId, boxList, box) {
+    var boxContainer = document.getElementById(boxId);
+    for (var idx=0; idx < boxList.length; idx++) {
+        var boxLink = document.createElement('a');
+        var imgDiv = document.createElement('div');
+        var img = document.createElement('img');
+
+        boxLink.href = 'javascript: void(0)';
+        boxLink.id = box + idx;
+        boxLink.style.width = "70px";
+        boxLink.style.height = "70px";
+        img.src = 'images/' + box + '/' + boxList[idx];
+        img.style.width = "100%";
+        img.style.height = "100%";
+        imgDiv.style.width = "70px";
+        imgDiv.style.height = "70px";
+        imgDiv.style.margin = " 2px 2px";
+        imgDiv.style.verticalAlign = "center";
+        imgDiv.style.display = "inline-block";
+
+        imgDiv.appendChild(img);
+        boxLink.appendChild(imgDiv);
+        boxContainer.appendChild(boxLink);
+    }
+}
+
 function showMbtImg() {
 
     var mbtContainer = document.getElementById(config.MTRBID);

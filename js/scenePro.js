@@ -95,6 +95,7 @@ function initParam() {
     iptStepMove.value = parameter.MOVESTEP;
     currentBoxIdx = 0;
 }
+
 /********************* 添加鼠标事件及复选框事件 *************************/
 function addEvent() {
 
@@ -105,7 +106,7 @@ function addEvent() {
 
     addObjOpt2Slt();
     addMtr2Group();
-    addBoxOpt2Slt(0);
+    //addBoxOpt2Slt(0);
 
     changeOpt();
     changeIptValueEvent();
@@ -127,27 +128,24 @@ function addEvent() {
 
 /***************** 鼠标事件 ************************/
 function clickImgEvent() {
-    for (var k = 0; k < ELIST.length; k++) {
-        switch (k) {
-            case 0:
-                clickMet(EID[k], 28);
-                break;
-            case 1:
-                clickMet(EID[k], 30);
-                break;
-            case 2:
-                clickMet(EID[k], 29);
-                break;
-            case 3:
-                clickMet(EID[k], 27);
-                break;
-            case 4:
-                clickMet(EID[k], 20);
-                break;
-        }
+    for (var k = 0; k < boxList.length; k++) {
+        var box = config.BOX;
+        var label = 0;
+        clickMet(box, k, label);
+    }
+    for (var k = 0; k < cldList.length; k++) {
+        var cld = config.CYLINDER;
+        var label = 1;
+        clickMet(cld, k, label);
+    }
+    for (var k = 0; k< sqrList.length; k++) {
+        var sqr = config.SQUARE;
+        var label = 2;
+        clickMet(sqr, k, label);
     }
 
     for (var i = 0; i < BLIST.length; i++) {
+        // console.log(BID[i])
         clickMbt(BID[i], i);
     }
 

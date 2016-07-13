@@ -23,14 +23,14 @@ a:hover {
     border: 1px solid #000;
 }
 .iWeb {
-    width: 789px;
-    height: 930px;
+    width: 1089px;
+    height: 1030px;
     margin: 0 auto;
 }
 
 /*******title*******/
 .iTitle {
-    width: 789px;
+    width: 1089px;
     height: 65px;
     align-content: center;
     /*background: -webkit-gradient(linear, left bottom, right top, from(#a8ffbe), to(#fafafa));*/
@@ -52,7 +52,7 @@ a:hover {
 
 .iContent {
     width: 100%;
-    height: 754px;
+    height: 854px;
     /*background-color: #d6fff3;*/
     background: -webkit-gradient(linear,left top, left bottom, from(#aaaaaa), to(#ffffff));
 }
@@ -64,13 +64,13 @@ a:hover {
 }
 
 .objScene {
-    width: 489px;
+    width: 789px;
     height:298px;
     margin: 2px auto;
 }
 
 .objCheck {
-    width: 489px;
+    width: 789px;
     height: auto;
     margin: 0 auto;
 }
@@ -87,31 +87,44 @@ a:hover {
 /*******Material*******/
 .cMaterial {
     width: 100%;
-    height: 447px;
+    height: 547px;
 }
 
 
 .mtrExist {
-    width: 489px;
-    height: 193px;
+    width: 789px;
+    height: 293px;
     margin: 2px auto;
 }
 
 .mtrExistList {
-    width: 286px;
-    height: 188px;
+    width: 586px;
+    height: 288px;
     display: inline-block;
     overflow-y: auto;
 }
 
-.mtrExistItem {
+.objRplBox {
+    width: 584px;
+    height: 80px;
+    display: inline-block;
+}
+.objLable {
+    width:15px;
+    height: 80px;
+    display:inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #000;
+}
+/*.mtrExistItem {
     width:100px;
     height: 100px;
     display: inline-block;
-}
+}*/
 .mtrParam {
     width: 194px;
-    height: 188px;
+    height: 288px;
     display: inline-block;
     overflow-y: auto;
 }
@@ -170,13 +183,13 @@ a:hover {
 }
 
 .mtrBasic {
-    width: 489px;
+    width: 789px;
     height: 120px;
     margin-bottom: 8px;
 }
 
 .mtrBasicTitle {
-    width:489px;
+    width:789px;
     height: auto;
     background-color: #aaaaaa;
 }
@@ -191,12 +204,12 @@ a:hover {
     display: inline-block;
 }
 .mtrVaria {
-    width: 489px;
+    width: 789px;
     height: 120px;
 }
 
 .mtrVariaTitle {
-    width:489px;
+    width:789px;
     height: auto;
     background-color: #aaaaaa;
 }
@@ -238,7 +251,10 @@ a:hover {
 .canvas {
     border: 1px solid #000;
     margin: 10px auto;
-    text-align: center;
+    /*text-align: center;*/
+    width: 300px;
+    height: 330px;
+    display: inline-block;
 }
 
 .mtrImgProp {
